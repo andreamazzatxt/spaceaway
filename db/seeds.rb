@@ -1,7 +1,7 @@
-
 User.destroy_all
 10.times do
   User.create!(
-      name:
+      email: Faker::Internet.email,
+      first_name:
     )
 end
