@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_164021) do
+ActiveRecord::Schema.define(version: 2021_03_08_171556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "trip_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trip_id"], name: "index_bookings_on_trip_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "planets", force: :cascade do |t|
     t.string "name"
@@ -45,6 +54,27 @@ ActiveRecord::Schema.define(version: 2021_03_08_164021) do
     t.index ["spaceship_id"], name: "index_trips_on_spaceship_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "experience"
+    t.string "username"
+    t.text "personality"
+    t.date "date_birth"
+    t.boolean "is_captain"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "bookings", "trips"
+  add_foreign_key "bookings", "users"
   add_foreign_key "trips", "planets"
   add_foreign_key "trips", "spaceships"
 end
