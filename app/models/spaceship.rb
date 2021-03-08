@@ -1,0 +1,2 @@
+class Spaceship < ApplicationRecord
+end
