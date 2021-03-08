@@ -10,18 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_03_08_150620) do
-
+ActiveRecord::Schema.define(version: 2021_03_08_164021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "spaceships", force: :cascade do |t|
-    t.string "name"
-    t.integer "capacity"
-    t.string "speciality"
-  end
 
   create_table "planets", force: :cascade do |t|
     t.string "name"
@@ -31,4 +23,28 @@ ActiveRecord::Schema.define(version: 2021_03_08_150620) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "spaceships", force: :cascade do |t|
+    t.string "name"
+    t.integer "capacity"
+    t.string "speciality"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "name"
+    t.bigint "spaceship_id", null: false
+    t.bigint "planet_id", null: false
+    t.integer "price"
+    t.date "departure_date"
+    t.date "arrival_date"
+    t.jsonb "passengers"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["planet_id"], name: "index_trips_on_planet_id"
+    t.index ["spaceship_id"], name: "index_trips_on_spaceship_id"
+  end
+
+  add_foreign_key "trips", "planets"
+  add_foreign_key "trips", "spaceships"
 end
