@@ -8,4 +8,8 @@ class TripPolicy < ApplicationPolicy
   def destroy?
     record.pirats.positive? ? false : true
   end
+
+  def create?
+    user.is_captain?
+  end
 end
