@@ -13,10 +13,12 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    authorize @trip
   end
 
   def create
     @trip = Trip.new(trip_params)
+    authorize @trip
 
     if @trip.save
       redirect_to trip_path(@trip)
@@ -35,7 +37,6 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
-
     redirect_to :root
   end
 
@@ -47,5 +48,6 @@ class TripsController < ApplicationController
 
   def find_trip
     @trip = Trip.find(params[:id])
+    authorize @trip # Florence: comment to add this here => Pundit
   end
 end
