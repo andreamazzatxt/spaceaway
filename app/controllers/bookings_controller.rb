@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
-    @booking.status = false    @booking.create('')
+    @booking.status = false
+    redirect_to trip_path(@booking.trip) if @booking.save
   end
 
   private
