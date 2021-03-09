@@ -24,4 +24,5 @@ body,html {
   background-color:$body-color;
   color: $text-color;
   height: 100%;
+  scroll-behavior: smooth;
 }
