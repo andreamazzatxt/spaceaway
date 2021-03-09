@@ -1,12 +1,75 @@
-// Specific CSS for your home-page
-.trip-card{
-  background-color:black;
-  width:500px;
-  height: 600px;
-  border-radius:5px;
-  .trip-img{
-    width:100%;
-    padding: 1rem;
+
+
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  // top: 0;
+  // left: 0;
+}
+
+
+.viewport-header {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// h1 {
+//   font-family: $body-font;
+//   color: $primary;
+//   // text-transform: uppercase;
+//   letter-spacing: 3vw;
+//   line-height: 1.2;
+//   font-size: 3vw;
+//   text-align: center;
+//   span {
+//     display: block;
+//     font-size: 10vw;
+//     letter-spacing: -1.3vw;
+//   }
+// }
+
+main {
+  display: none;
+  width: 80vw;
+  left: 10%;
+  height: 40vh;
+  overflow: auto;
+  background: rgba(black, 0.66);
+  color: white;
+  position: relative;
+  padding: 1rem;
+}
+
+#navbar-primary .navbar-nav {
+  width: 100%;
+  text-align: center;
+  > li {
+    display: inline-block;
+    float: none;
+    > a {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
   }
 }
+
+.logo{
+  width:100px;
+}
+
+
+
+// ---------------------------cars trip section--------------------------------------
+
+
+
+
+
+
 
