@@ -1,1 +1,12 @@
 // Specific CSS for your home-page
+.trip-card{
+  background-color:black;
+  width:500px;
+  height: 600px;
+  border-radius:5px;
+  .trip-img{
+    width:100%;
+    padding: 1rem;
+  }
+}
+

@@ -1,6 +1,6 @@
 puts 'Start seeding .... 😬'
 User.destroy_all
-20.times do
+5.times do
   User.create!(
       email: Faker::Internet.email,
       first_name: Faker::Name.first_name,
@@ -11,7 +11,6 @@ User.destroy_all
       is_captain: false
     )
 end
-
 10.times do
   User.create!(
       email: Faker::Internet.email,
@@ -72,4 +71,26 @@ mercury = Planet.create!(name:'Mercury', coordinates:"12,45.34", description:'Me
 venus = Planet.create!(name:'Venus', coordinates:"12,99.39", description:'Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius of about nine times that of Earth.')
 mars = Planet.create!(name:'Mars', coordinates:"12,09.04", description:'Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty. As the brightest natural object in Earths night sky after the Moon, Venus can cast shadows and can be, on rare occasion, visible to the naked eye in broad daylight.')
 
+#trip seeds
+
+go_to_mars = Trip.create!(
+  name: "Mars Trip",
+  spaceship_id: 1,
+   planet_id: 4,
+    price: 4.300000 ,
+     departure_date: '12/02/2021',
+      arrival_date: '12/03/2021'
+       )
+
+go_to_venus = Trip.create!(
+  name: "Venus Trip",
+  spaceship_id: 2,
+   planet_id: 3,
+    price: 12.300000 ,
+     departure_date: '17/02/2023',
+      arrival_date: '12/03/2023'
+       )
+
+
 puts 'Seed comlpeted! 🌱'
+
