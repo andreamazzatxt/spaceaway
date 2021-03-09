@@ -5,7 +5,8 @@ class TripsController < ApplicationController
   end
 
   def show
-    # @doses = @cocktail.doses
+    @new_booking = Booking.new # need for booking form :)
+    @booking = Booking.where(user: current_user)
   end
 
   def new
