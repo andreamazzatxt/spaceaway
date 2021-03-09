@@ -9,8 +9,9 @@
       <p>Price per person: <%= @trip.price %></p>
       <p>Departure: <%= @trip.departure_date %></p>
       <p>Back: <%= @trip.departure_date %></p>
-      <%= simple_form_for @new_booking do |f|%>
-        <%= f.button :submit %>
+
+      <%= simple_form_for [@trip, @new_booking] do |f|%>
+        <%= f.button :submit, class: 'btn btn-primary'%>
       <% end %>
   <% end %>
   </div>

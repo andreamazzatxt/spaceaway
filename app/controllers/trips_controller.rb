@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
-     before_action :find_trip, only: [:show, :edit, :update, :destroy]
-     skip_before_action :authenticate_user!, only: :show
+  before_action :find_trip, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :show
+
   def index
     @trips = Trip.all
   end
@@ -8,7 +9,12 @@ class TripsController < ApplicationController
   def show
     authorize @trip
     @new_booking = Booking.new # need for booking form :)
-    @booking = Booking.where(user: current_user) #need for booking_form
+    @booked_by_user = false
+    if @trip.bookings.size.positive?
+      @trip.bookings.each do |booking|
+        @booked_by_user = true if booking.user == current_user
+      end
+    end
   end
 
   def new
@@ -19,7 +25,6 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     authorize @trip
-
     if @trip.save
       redirect_to trip_path(@trip)
     else
@@ -43,7 +48,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :spaceship_id, :planet_id , :price, :departure_date, :arrival_date, :passengers, :reviews  )
+    params.require(:trip).permit(:name, :spaceship_id, :planet_id, :price, :departure_date, :arrival_date, :passengers, :reviews)
   end
 
   def find_trip
