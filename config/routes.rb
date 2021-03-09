@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'reviews/create'
-  get 'reviews/edit'
-  get 'reviews/destroy'
+  devise_for :users
   root to: 'pages#home'
 
   resources :trips do
