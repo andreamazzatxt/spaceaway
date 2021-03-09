@@ -1,12 +1,207 @@
-// Specific CSS for your home-page
-.trip-card{
-  background-color:black;
-  width:500px;
-  height: 600px;
-  border-radius:5px;
-  .trip-img{
-    width:100%;
-    padding: 1rem;
+
+
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+.viewport-header {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// h1 {
+//   font-family: $body-font;
+//   color: $primary;
+//   // text-transform: uppercase;
+//   letter-spacing: 3vw;
+//   line-height: 1.2;
+//   font-size: 3vw;
+//   text-align: center;
+//   span {
+//     display: block;
+//     font-size: 10vw;
+//     letter-spacing: -1.3vw;
+//   }
+// }
+
+main {
+  display: none;
+  width: 80vw;
+  left: 10%;
+  height: 40vh;
+  overflow: auto;
+  background: rgba(black, 0.66);
+  color: white;
+  position: relative;
+  padding: 1rem;
+}
+
+#navbar-primary .navbar-nav {
+  width: 100%;
+  text-align: center;
+  z-index:10000;
+  > li {
+    display: inline-block;
+    float: none;
+    > a {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
   }
 }
+
+.logo{
+  width:100px;
+}
+
+
+
+// ---------------------------cars trip section--------------------------------------
+
+// MEDIA QUERY
+@mixin media($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: 60em) {
+      @content;
+    }
+  }
+}
+
+// VARIABLES
+$color-header: #0d0d0d;
+$color-text: #404040;
+
+$color-btn-text: #3363ff;
+$color-btn-background: #e6ecff;
+
+$transition: .2s;
+
+// RESET
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+// GLOBAL
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 6rem;
+  background-color: #f5f5f5;
+  font-family: "Inter", sans-serif;
+
+  @include media(small) {
+      padding: 3rem;
+   }
+}
+
+// MAIN CONTENT
+.grid {
+  display: grid;
+  width: 114rem;
+  grid-gap: 6rem;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(30rem, 1fr)
+  );
+  align-items: start;
+
+  @include media(small) {
+      grid-gap: 3rem;
+   }
+
+  &__item {
+    background-color: #fff;
+    border-radius: .4rem;
+    overflow: hidden;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, .1);
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      transform: translateY(-.5%);
+      box-shadow: 0 4rem 8rem rgba(0, 0, 0, .2);
+    }
+  }
+}
+
+.card {
+  &__img {
+    display: block;
+    width: 100%;
+    height: 18rem;
+    object-fit: cover;
+   }
+
+  &__content {
+    padding: 3rem 3rem;
+  }
+
+  &__header {
+    font-size: 3rem;
+    font-weight: 500;
+    color: $color-header;
+    margin-bottom: 1.5rem;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+    line-height: 1.7;
+    color: darken($color-text, 1%);
+    margin-bottom: 2.5rem;
+  }
+
+  &__btn {
+    display: block;
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+    color: $color-btn-text;
+    background-color: $color-btn-background;
+    border: none;
+    border-radius: .4rem;
+    transition: $transition;
+    cursor: pointer;
+
+    span {
+      margin-left: 1rem;
+      transition: $transition;
+    }
+
+    &:hover,
+    &:active {
+      background-color: darken( $color-btn-background, 2%);
+
+        span {
+        margin-left: 1.5rem;
+      }
+    }
+  }
+}
+
+
+
+
+
 

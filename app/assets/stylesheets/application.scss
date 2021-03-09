@@ -13,7 +13,14 @@
 @import "pages/home";
 
 
-body{
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,html {
   background-color:$body-color;
   color: $text-color;
+  height: 100%;
 }
