@@ -1,3 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= render 'bookings/booking_form' %>
+<div class="container-lg">
+  <div class="row row-cols-4">
+   <div class="cards">
+      <% @trips.each do |trip| %>
+       <div class="trip-card">
+        <div class="trip-img"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fphys.org%2Fnews%2F2020-05-astrobiologists-mars-rover-life-detecting-equipment.html&psig=AOvVaw28ssMgiPw9d8rFP0e1KD7p&ust=1615381774074000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjT-Z2ko-8CFQAAAAAdAAAAABAD" alt="mars photo"></div>
+          <p><%= trip.name %></p>
+        <% end %>
+  </div>
+</div>
+</div>
+</div>

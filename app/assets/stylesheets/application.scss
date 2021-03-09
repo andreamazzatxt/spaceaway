@@ -10,4 +10,10 @@
 
 // Your CSS partials
 @import "components/index";
-@import "pages/index";
+@import "pages/home";
+
+
+body{
+  background-color:$body-color;
+  color: $text-color;
+}
