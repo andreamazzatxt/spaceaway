@@ -1,4 +1,4 @@
-  class Trip < ApplicationRecord
+class Trip < ApplicationRecord
   belongs_to :spaceship
   belongs_to :planet
   has_many :bookings
