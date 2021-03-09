@@ -1,0 +1,17 @@
+<div class="container trip-container">
+  <h1><%= @trip.name %></h1>
+  <div class="container">
+    <!-- need to be changed to img tag when implement active storage -->
+    <img src="https://images.pexels.com/photos/1274260/pexels-photo-1274260.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="space image">
+  </div>
+
+  <div class="container">
+    <div class="trip-info">
+
+    </div>
+    <div class="trip-booking">
+      <%= render 'bookings/booking_form' %>
+    </div>
+  </div>
+
+</div>

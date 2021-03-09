@@ -1,12 +1,14 @@
 class TripsController < ApplicationController
      before_action :find_trip, only: [:show, :edit, :update, :destroy]
+     skip_before_action :authenticate_user!, only: :show
   def index
     @trips = Trip.all
   end
 
   def show
+    authorize @trip
     @new_booking = Booking.new # need for booking form :)
-    @booking = Booking.where(user: current_user)
+    @booking = Booking.where(user: current_user) #need for booking_form
   end
 
   def new
@@ -44,6 +46,6 @@ class TripsController < ApplicationController
   end
 
   def find_trip
-    @trip = trip.find(params[:id])
+    @trip = Trip.find(params[:id])
   end
 end
