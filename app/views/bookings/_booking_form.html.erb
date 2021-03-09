@@ -3,14 +3,15 @@
     <h2>You already booked this trip</h2>
     <p>Departure: <%= @trip.departure_date %></p>
     <p>Back: <%= @trip.departure_date %></p>
-    <%= link_to 'Cancel booking', trip_booking_path(@booking), {method: delete}  %>
+    <%= link_to 'Cancel booking', trip_booking_path(@booking), {method: :delete}  %>
   <% else %>
       <h2>Book your trip to <%= @trip.planet.name %></h2>
-      <p>Price per person: <%= @trip.price %></p>
+      <p>Price per person: <%= @trip.price %> ₿ </p>
       <p>Departure: <%= @trip.departure_date %></p>
       <p>Back: <%= @trip.departure_date %></p>
-      <%= simple_form_for @new_booking do |f|%>
-        <%= f.button :submit %>
+
+      <%= simple_form_for [@trip, @new_booking] do |f|%>
+        <%= f.button :submit, 'Book now!', class: 'btn btn-primary w-100 rounded'%>
       <% end %>
   <% end %>
   </div>

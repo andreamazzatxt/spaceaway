@@ -1,21 +1,34 @@
 class TripsController < ApplicationController
-     before_action :find_trip, only: [:show, :edit, :update, :destroy]
+  before_action :find_trip, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :show
+
   def index
     @trips = Trip.all
   end
 
   def show
+    authorize @trip
     @new_booking = Booking.new # need for booking form :)
-    @booking = Booking.where(user: current_user)
+    @booked_by_user = false
+    if @trip.bookings.size.positive?
+      @trip.bookings.each do |booking|
+        @booked_by_user = true if booking.user == current_user
+      end
+    end
   end
 
   def new
     @trip = Trip.new
+    authorize @trip
+    @planets = Planet.all
+    @spaceships = Spaceship.all
   end
 
   def create
     @trip = Trip.new(trip_params)
-
+    authorize @trip
+    @trip.planet = find_planet
+    @trip.spaceship = find_spaceship
     if @trip.save
       redirect_to trip_path(@trip)
     else
@@ -33,17 +46,27 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
-
     redirect_to :root
   end
 
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :spaceship_id, :planet_id , :price, :departure_date, :arrival_date, :passengers, :reviews  )
+    params.require(:trip).permit(:name, :price, :departure_date, :arrival_date, :passengers, :reviews  )
   end
 
   def find_trip
-    @trip = trip.find(params[:id])
+    @trip = Trip.find(params[:id])
+    authorize @trip # Florent: comment to add this here => Pundit
+  end
+
+  def find_spaceship
+    id = params.require(:trip).permit(:spaceship)[:spaceship].to_i
+    Spaceship.find(id)
+  end
+
+  def find_planet
+    id = params.require(:trip).permit(:planet)[:planet].to_i
+    Planet.find(id)
   end
 end

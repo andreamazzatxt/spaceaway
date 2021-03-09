@@ -3,3 +3,4 @@ class PagesController < ApplicationController
     @trips = Trip.all
   end
 end
+
