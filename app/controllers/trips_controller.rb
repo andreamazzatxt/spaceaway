@@ -50,7 +50,7 @@ class TripsController < ApplicationController
 
   def find_trip
     @trip = Trip.find(params[:id])
-    authorize @trip # Florence: comment to add this here => Pundit
+    authorize @trip # Florent: comment to add this here => Pundit
   end
 
   def find_spaceship
