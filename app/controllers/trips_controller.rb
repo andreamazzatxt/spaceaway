@@ -9,10 +9,10 @@ class TripsController < ApplicationController
   def show
     authorize @trip
     @new_booking = Booking.new # need for booking form :)
-    @booked_by_user = false
+    @booking = false
     if @trip.bookings.size.positive?
       @trip.bookings.each do |booking|
-        @booked_by_user = true if booking.user == current_user
+        @booking = booking if booking.user == current_user
       end
     end
   end

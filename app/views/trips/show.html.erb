@@ -8,7 +8,7 @@
 
   <div class="container trip-detail-card">
     <div class="trip-info">
-      <%= render 'bookings/booking_form' %>
+      <%= render 'bookings/booking_form', booking: @booking, trip: @trip, new_booking: @new_booking %>
     </div>
     <div class="trip-info">
       <h3>Planet Info</h3>
