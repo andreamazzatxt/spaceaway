@@ -4,4 +4,12 @@ class TripPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def destroy?
+    record.pirats.positive? ? false : true
+  end
+
+  def create?
+    user.is_captain?
+  end
 end
