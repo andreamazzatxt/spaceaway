@@ -31,9 +31,7 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    # destroy a trip even if there is a pirat: if-else
     @trip.destroy
-
     redirect_to :root
   end
 
