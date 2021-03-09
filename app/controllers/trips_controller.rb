@@ -20,11 +20,15 @@ class TripsController < ApplicationController
   def new
     @trip = Trip.new
     authorize @trip
+    @planets = Planet.all
+    @spaceships = Spaceship.all
   end
 
   def create
     @trip = Trip.new(trip_params)
     authorize @trip
+    @trip.planet = find_planet
+    @trip.spaceship = find_spaceship
     if @trip.save
       redirect_to trip_path(@trip)
     else
@@ -48,11 +52,21 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :spaceship_id, :planet_id, :price, :departure_date, :arrival_date, :passengers, :reviews)
+    params.require(:trip).permit(:name, :price, :departure_date, :arrival_date, :passengers, :reviews  )
   end
 
   def find_trip
     @trip = Trip.find(params[:id])
-    authorize @trip # Florence: comment to add this here => Pundit
+    authorize @trip # Florent: comment to add this here => Pundit
+  end
+
+  def find_spaceship
+    id = params.require(:trip).permit(:spaceship)[:spaceship].to_i
+    Spaceship.find(id)
+  end
+
+  def find_planet
+    id = params.require(:trip).permit(:planet)[:planet].to_i
+    Planet.find(id)
   end
 end

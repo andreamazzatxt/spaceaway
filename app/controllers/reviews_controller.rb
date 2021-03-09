@@ -1,10 +1,11 @@
 class ReviewsController < ApplicationController
   def create
-    @trip = trip.find(params[:trip_id])
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
-    @review.trip = @trip
+    @review.booking = @booking
+    authorize @review
     if @review.save
-      redirect_to trip_path(@trip)
+      redirect_to trip_path(@booking.trip)
     else
       render "trips/show"
     end

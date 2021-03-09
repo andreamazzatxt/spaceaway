@@ -3,7 +3,7 @@ class ApplicationPolicy
 
   def initialize(user, record)
     @user = user
-    @record = record
+    @record = record # is the element after the authorize
   end
 
   def index?
