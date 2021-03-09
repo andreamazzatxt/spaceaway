@@ -6,5 +6,6 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def create?
+    record.booking.trip.captain == user || record.booking.user == user
   end
 end
