@@ -1,12 +1,20 @@
 class TripsController < ApplicationController
-     before_action :find_trip, only: [:show, :edit, :update, :destroy]
+  before_action :find_trip, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :show
+
   def index
     @trips = Trip.all
   end
 
   def show
+    authorize @trip
     @new_booking = Booking.new # need for booking form :)
-    @booking = Booking.where(user: current_user)
+    @booked_by_user = false
+    if @trip.bookings.size.positive?
+      @trip.bookings.each do |booking|
+        @booked_by_user = true if booking.user == current_user
+      end
+    end
   end
 
   def new
@@ -21,7 +29,6 @@ class TripsController < ApplicationController
     authorize @trip
     @trip.planet = find_planet
     @trip.spaceship = find_spaceship
-
     if @trip.save
       redirect_to trip_path(@trip)
     else

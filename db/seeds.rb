@@ -1,4 +1,4 @@
-puts 'Start seeding .... 😬'
+  puts 'Start seeding .... 😬'
 User.destroy_all
 5.times do
   User.create!(

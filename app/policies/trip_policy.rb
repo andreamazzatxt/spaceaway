@@ -5,6 +5,11 @@ class TripPolicy < ApplicationPolicy
     end
   end
 
+
+  def show?
+    true
+  end
+
   def destroy?
     record.pirats.positive? ? false : true
   end
