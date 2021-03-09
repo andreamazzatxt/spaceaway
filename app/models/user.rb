@@ -7,3 +7,5 @@ class User < ApplicationRecord
   validates :username, presence: true #, uniqueness: true
   validates :date_birth, presence: true
 end
+
+
