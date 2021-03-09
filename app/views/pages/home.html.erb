@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container-lg">
+  <div class="row row-cols-4">
+   <div class="cards">
+      <% @trips.each do |trip| %>
+       <div class="card-category col">
+          <p><%= trip.name %></p>
+        <% end %>
+    <p>+</p>
+  </div>
+</div>
+</div>
+</div>
+
