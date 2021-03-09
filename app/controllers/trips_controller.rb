@@ -5,7 +5,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    # @doses = @cocktail.doses
+    @booking = Booking.new
   end
 
   def new

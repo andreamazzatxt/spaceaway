@@ -1,0 +1,9 @@
+<div class="booking_form">
+  <h2>Book your trip to <%= @trip.planet.name %></h2>
+  <p>Price per person: <%= @trip.price %></p>
+  <p>Departure: <%= @trip.departure_date %></p>
+  <p>Back: <%= @trip.departure_date %></p>
+  <%= simple_form_for @booking do |f|%>
+    <%= f.button :submit %>
+  <% end %>
+</div>
