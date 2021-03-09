@@ -31,6 +31,7 @@ class TripsController < ApplicationController
   end
 
   def destroy
+    # destroy a trip even if there is a pirat: if-else
     @trip.destroy
 
     redirect_to :root
@@ -44,5 +45,6 @@ class TripsController < ApplicationController
 
   def find_trip
     @trip = trip.find(params[:id])
+    authorize @trip # Florence: comment to add this here => Pundit
   end
 end
