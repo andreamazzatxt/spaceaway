@@ -1,17 +1,32 @@
-<div class="container trip-container">
-  <h1><%= @trip.name %></h1>
+ <h1 class="trip-title"><%= @trip.name %></h1>
+<div class="container trip-container d-flex">
+
   <div class="container">
     <!-- need to be changed to img tag when implement active storage -->
     <img src="https://images.pexels.com/photos/1274260/pexels-photo-1274260.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="space image">
   </div>
 
-  <div class="container">
+  <div class="container trip-detail-card">
     <div class="trip-info">
-
-    </div>
-    <div class="trip-booking">
       <%= render 'bookings/booking_form' %>
     </div>
+    <div class="trip-info">
+      <h3>Planet Info</h3>
+      <p>Name: <%= @trip.planet.name %></p>
+      <p>Coordinates: <%= @trip.planet.coordinates %></p>
+      <p><%= @trip.planet.description %></p>
+    </div>
+    <div class="trip-info">
+      <h3>Spaceship Info</h3>
+      <p>Name: <%= @trip.spaceship.name %></p>
+      <p>Info: <%= @trip.spaceship.speciality %></p>
+      <p>Capacity: <%= @trip.spaceship.capacity %> pirates</p>
+
+    </div>
   </div>
+</div>
+<div class="container reviews-container">
+
+
 
 </div>
