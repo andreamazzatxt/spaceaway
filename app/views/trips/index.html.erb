@@ -1,0 +1,23 @@
+<h1>My Trips</h1>
+
+<section id="home-trips">
+  <div class="container">
+    <div class="row">
+    <% @trips.each do |trip| %>
+        <div class="col">
+        <div class="card">
+          <div class="image">
+            <img style="width:100%; object-fit: cover;"src="https://img.yqqlm.com/index/index/getInterUrl?uicrIvZQ=cc5a13776133d3338c3a880cb6528504" alt="">
+          </div>
+          <div class="card-info">
+            <img id="avatar-image"src="https://images-na.ssl-images-amazon.com/images/I/719vNNdMaZL._SL1500_.jpg" style="width: 2.7rem;height: 2.7rem;"alt="">
+            <h5><%= trip.name %></h5>
+            <p class="trip-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+          </div>
+        </div>
+        </div>
+
+        <% end %>
+        </div>
+  </div>
+</section>
