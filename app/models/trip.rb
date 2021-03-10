@@ -1,4 +1,5 @@
 class Trip < ApplicationRecord
+  has_one_attached :photo
   belongs_to :spaceship
   belongs_to :planet
   has_many :bookings
