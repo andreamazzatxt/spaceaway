@@ -13,7 +13,6 @@ class ReviewsController < ApplicationController
 
   def edit
     @review.update(review_params)
-
     redirect_to trip_path(@trip)
   end
 

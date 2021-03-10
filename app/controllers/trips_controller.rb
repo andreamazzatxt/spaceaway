@@ -3,7 +3,13 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
   def index
-    @trips = Trip.all
+    # current_user = user who is logged in
+    if current_user && current_user.is_captain
+      @trips = Trip.where(captain_id: current_user.id).select do |t|
+        t.bookings.count.positive?
+      end
+    else @trips = Trip.all
+    end
   end
 
   def show
