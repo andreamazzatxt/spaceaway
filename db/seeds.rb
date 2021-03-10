@@ -1,6 +1,7 @@
 require "open-uri"
 puts 'Start seeding .... 😬'
 
+Booking.destroy_all
 Trip.destroy_all
 User.destroy_all
 Spaceship.destroy_all
@@ -236,6 +237,7 @@ alderan.save!
 go_to_mars = Trip.new(
                   name: "Awesome Trip to Mars",
                   spaceship: spaceship_us,
+                  captain: anakin,
                   planet: mars,
                   price: 42000,
                   description: 'Come visit our beautiful red planet! You are going to be amazed! Also you can visit the landing spot of the Perseverance rover',
@@ -250,7 +252,7 @@ go_to_mars.save!
 go_to_venus = Trip.new(
                   name: "Superfast trip to Venus",
                   spaceship: spaceship_tmf,
-
+                  captain: leila,
                   planet: venus,
                   price: 42000,
                   description: 'Venus is waiting for you!! Our hot planet is going to keep you warm!',
@@ -267,7 +269,7 @@ go_to_venus.save!
 go_to_alderan = Trip.new(
                   name: "Visit Leila House",
                   spaceship: spaceship_tmf,
-
+                  captain: anakin,
                   planet: alderan,
                   price: 42000,
                   description: 'Come and visit the new Alderan, we build it againg from scratch just for you. We have also a DeathStar shield ... just for your safety!',
@@ -282,6 +284,7 @@ go_to_alderan.save!
 go_to_tatoonie= Trip.new(
                   name: "Visit Tatoonie!",
                   spaceship: spaceship_tmf,
+                  captain: leila,
                   planet: tatoonie,
                   price: 80000,
                   description: 'Come and visit the most dry planet in the universe, you will be able to visit the home planet of the Skywalkers',
@@ -298,7 +301,7 @@ go_to_tatoonie.save!
 go_to_exegol= Trip.new(
                   name: "Visit the planet of the Sith!",
                   spaceship: spaceship_d,
-
+                  captain: anakin,
                   planet: exegol,
                   price: 123000,
                   description: 'The Dark Lord of the Siths is waiting for you, here on Exegol. He will tich you how to use the dark side of the Force in this fantastic trip!',
@@ -313,7 +316,7 @@ go_to_exegol.save!
 go_to_mandalore= Trip.new(
                   name: "Visit Mandalore",
                   spaceship: spaceship_et,
-
+                  captain: leila,
                   planet: mandalore,
                   price: 123000,
                   description: 'Visit the planet of Mando, you will be able to see Grogu going wild!!',
