@@ -29,3 +29,10 @@ body,html {
 img {
   border-radius: 20px;
 }
+
+// NEED to move this to new page scss component
+.padding-form {
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 200px;
+}
