@@ -1,6 +1,8 @@
 
   <video src="https://d1titnu6se1qmv.cloudfront.net/uploads/2019/04/home-vbg.mp4" autoplay loop playsinline muted></video>
 <div class="viewport-header">
+  <h1>Spaceaway</h1>
+  <br>
   <a href="#home-trips" class="btn btn-primary">All Trips</a>
 </div>
 
@@ -14,7 +16,7 @@
         <div class="col">
         <%= link_to trip_path(trip) do %>
           <div class="card">
-            <img id="avatar-image"src="https://images-na.ssl-images-amazon.com/images/I/719vNNdMaZL._SL1500_.jpg" style="width: 2.7rem;height: 2.7rem;"alt="">
+            <%= cl_image_tag trip.captain.photo.key, class: 'avatar',id: 'absolute-avatar', height: 40, width: 40, crop: :fill %>
             <div class="image">
               <%= cl_image_tag trip.photo.key, height: 300, width: 335, crop: :fill %>
             </div>

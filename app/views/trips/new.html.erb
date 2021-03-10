@@ -9,6 +9,7 @@
         <%= f.input :price %>
         <%= f.input :departure_date, as: :date %>
         <%= f.input :arrival_date, as: :date %>
+        <%= f.input :photo, as: :file, input_html: { multiple: false } %>
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>
     </div>

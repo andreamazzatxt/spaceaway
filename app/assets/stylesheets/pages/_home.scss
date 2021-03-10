@@ -15,8 +15,12 @@ video {
   height: 100vh;
   text-align: center;
   display: flex;
+  flex-flow: column wrap;
   align-items: center;
   justify-content: center;
+  h1 {
+    font-size: 62px;
+  }
 }
 
 main {
