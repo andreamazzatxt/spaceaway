@@ -26,8 +26,6 @@ class TripsController < ApplicationController
   def new
     @trip = Trip.new
     authorize @trip
-    @planets = Planet.all
-    @spaceships = Spaceship.all
   end
 
   def create
@@ -35,6 +33,7 @@ class TripsController < ApplicationController
     authorize @trip
     @trip.planet = find_planet
     @trip.spaceship = find_spaceship
+    @trip.captain = current_user
     if @trip.save
       redirect_to trip_path(@trip)
     else
@@ -46,7 +45,6 @@ class TripsController < ApplicationController
 
   def update #patch request
     @trip.update(trip_params)
-
     redirect_to root_path(@trip.id)
   end
 
@@ -58,7 +56,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :price, :departure_date, :arrival_date, :passengers, :reviews  )
+    params.require(:trip).permit(:name, :price, :departure_date, :arrival_date, :passengers, :reviews)
   end
 
   def find_trip
