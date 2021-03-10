@@ -2,6 +2,7 @@ class Trip < ApplicationRecord
   has_one_attached :photo
   belongs_to :spaceship
   belongs_to :planet
+  belongs_to :captain, class_name: :User, foreign_key: :captain_id
   has_many :bookings
   has_many :users, through: :bookings
   has_many :reviews, through: :bookings

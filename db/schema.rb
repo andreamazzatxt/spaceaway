@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_102155) do
+
+ActiveRecord::Schema.define(version: 2021_03_10_130331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +93,8 @@ ActiveRecord::Schema.define(version: 2021_03_10_102155) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"
+    t.bigint "captain_id"
+    t.index ["captain_id"], name: "index_trips_on_captain_id"
     t.index ["planet_id"], name: "index_trips_on_planet_id"
     t.index ["spaceship_id"], name: "index_trips_on_spaceship_id"
   end
@@ -123,4 +126,5 @@ ActiveRecord::Schema.define(version: 2021_03_10_102155) do
   add_foreign_key "reviews", "users"
   add_foreign_key "trips", "planets"
   add_foreign_key "trips", "spaceships"
+  add_foreign_key "trips", "users", column: "captain_id"
 end
