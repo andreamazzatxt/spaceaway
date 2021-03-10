@@ -1,1 +1,1 @@
-<img class="avatar" id="avatar-image"src="https://images-na.ssl-images-amazon.com/images/I/719vNNdMaZL._SL1500_.jpg" style="width: 2.7rem;height: 2.7rem;"alt="">
+<%= cl_image_tag current_user.photo.key, class: 'avatar', height: 40, width: 40, crop: :fill %>
