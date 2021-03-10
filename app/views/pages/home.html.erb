@@ -1,11 +1,8 @@
-<header role="banner" id="home-banner">
-  <video src="https://d1titnu6se1qmv.cloudfront.net/uploads/2019/04/home-vbg.mp4" autoplay loop playsinline muted></video>
-  <%= render "./components/navbar" %>
 
+  <video src="https://d1titnu6se1qmv.cloudfront.net/uploads/2019/04/home-vbg.mp4" autoplay loop playsinline muted></video>
 <div class="viewport-header">
   <a href="#home-trips" class="btn btn-primary">Discover SpaceTrip</a>
 </div>
-</header>
 
 <!-- grid trip section -->
 
@@ -19,7 +16,7 @@
             <img style="width:100%; object-fit: cover;"src="https://img.yqqlm.com/index/index/getInterUrl?uicrIvZQ=cc5a13776133d3338c3a880cb6528504" alt="">
           </div>
           <div class="card-info">
-            <img id="avatar-image"src="https://images-na.ssl-images-amazon.com/images/I/719vNNdMaZL._SL1500_.jpg" style="width: 2.7rem;height: 2.7rem;"alt="">
+            <%= render "./components/avatar" %>
             <h5><%= trip.name %></h5>
             <p class="trip-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing</p>
           </div>
