@@ -57,6 +57,8 @@ main {
 #home-trips{
   padding:2rem;
   .card{
+  text-decoration: none !important;
+  position: relative;
   width:350px;
   height:450px;
   margin-bottom:3rem;
@@ -64,23 +66,12 @@ main {
   background-color: $secondary-dark;
   color:$text-color;
   .image{
-    width:100%;
+    width:320px;
     padding:.4rem;
     border-radius:8px;
-    img{
-      object-fit: contain;
-    }
   }
   &-info{
     padding:.8rem;
-    #avatar-image{
-      border-radius: 8px;
-      // padding:2px;
-      border: 4px solid $text-color;
-      position: absolute;
-      right: 2rem;
-      bottom: 5.5rem;
-    }
     .trip-paragraph{
       font-size: .7rem;
     }
@@ -88,9 +79,18 @@ main {
 }
 }
 
+.card:hover {
+  text-decoration: none !important;
+}
 
-
-
+#avatar-image{
+  border-radius: 8px;
+  // padding:2px;
+  border: 4px solid $text-color;
+  position: absolute;
+  right: 2rem;
+  bottom: 5.5rem;
+}
 
 
 

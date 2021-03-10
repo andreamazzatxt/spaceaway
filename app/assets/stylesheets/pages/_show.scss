@@ -1,6 +1,5 @@
 .trip-title {
   text-align: center;
-  margin: 40px 0;
 }
 
 
@@ -9,4 +8,12 @@
   border-radius: 20px;
   padding: 20px;
   margin-bottom: 30px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.trip-container {
+  margin-top: 100px;
 }

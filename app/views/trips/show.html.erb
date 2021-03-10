@@ -1,9 +1,10 @@
- <h1 class="trip-title"><%= @trip.name %></h1>
+
 <div class="container trip-container d-flex">
 
-  <div class="container">
-    <!-- need to be changed to img tag when implement active storage -->
-    <img src="https://images.pexels.com/photos/1274260/pexels-photo-1274260.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="space image">
+  <div class="container d-flex flex-column align-items-center justigy-content-center">
+     <h1 class="trip-title"><%= @trip.name %></h1>
+    <%= cl_image_tag @trip.photo.key, height: 600, width: 400, crop: :fill %>
+    <%= link_to 'Back', :back %>
   </div>
 
   <div class="container trip-detail-card">
@@ -11,17 +12,16 @@
       <%= render 'bookings/booking_form', booking: @booking, trip: @trip, new_booking: @new_booking %>
     </div>
     <div class="trip-info">
-      <h3>Planet Info</h3>
-      <p>Name: <%= @trip.planet.name %></p>
+      <h3>About <%= @trip.planet.name %></h3>
+      <%= cl_image_tag @trip.planet.photo.key, height: 200, width: 200, crop: :fill  %>
       <p>Coordinates: <%= @trip.planet.coordinates %></p>
       <p><%= @trip.planet.description %></p>
     </div>
     <div class="trip-info">
-      <h3>Spaceship Info</h3>
-      <p>Name: <%= @trip.spaceship.name %></p>
+      <h3>About <%= @trip.spaceship.name %> </h3>
+      <%= cl_image_tag @trip.spaceship.photo.key, height: 200, width: 200, crop: :fill  %>
       <p>Info: <%= @trip.spaceship.speciality %></p>
       <p>Capacity: <%= @trip.spaceship.capacity %> pirates</p>
-
     </div>
   </div>
 </div>
