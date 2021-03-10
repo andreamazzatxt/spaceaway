@@ -1,13 +1,14 @@
 
   <video src="https://d1titnu6se1qmv.cloudfront.net/uploads/2019/04/home-vbg.mp4" autoplay loop playsinline muted></video>
 <div class="viewport-header">
-  <a href="#home-trips" class="btn btn-primary">Discover SpaceTrip</a>
+  <a href="#home-trips" class="btn btn-primary">All Trips</a>
 </div>
 
 <!-- grid trip section -->
 
 <section id="home-trips">
-  <div class="container">
+  <div class="container trips-container">
+
     <div class="row">
     <% @trips.each do |trip| %>
         <div class="col">
@@ -24,7 +25,7 @@
         </div>
 
         <% end %>
-        </div>
+    </div>
   </div>
 </section>
 
