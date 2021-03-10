@@ -4,7 +4,7 @@
   <div class="container d-flex flex-column align-items-center justigy-content-center">
      <h1 class="trip-title"><%= @trip.name %></h1>
     <%= cl_image_tag @trip.photo.key, height: 600, width: 400, crop: :fill %>
-    <%= link_to 'Back', :back %>
+    <%= link_to 'Back', root_path %>
   </div>
 
   <div class="container trip-detail-card">
