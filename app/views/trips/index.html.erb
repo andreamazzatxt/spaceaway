@@ -1,12 +1,15 @@
-<p class="breadcrumb-container">
-  <%= render_breadcrumbs :separator => ' / ' %>
-</p>
-<h1>My Trips</h1>
-
 <section id="home-trips">
+
+  <!-- Breadcrumb -->
+  <p class="breadcrumb-container">
+  <%= render_breadcrumbs :separator => ' / ' %>
+  </p>
+
+  <!-- Trip Card -->
   <div class="container-my-trips-page">
     <h1>My Trips</h1>
       <% @trips.each do |trip| %>
+       <!-- Trip Card : Main Info -->
         <div class="card-captain">
           <div>
             <div class="image">
@@ -18,7 +21,9 @@
               <p class="trip-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing</p>
             </div>
           </div>
+          <!-- Trip Card : Main Info END-->
 
+          <!-- Trip Card : Booking Info-->
           <div>
             <ul class="list-unstyled">
               <h6>See Pirates on your trip</h6>
@@ -41,8 +46,10 @@
               <% end %>
             </ul>
           </div>
+          <!-- Trip Card : Booking Info END -->
         </div>
       <% end %>
+  <!-- Trip Card END -->
   </div>
 </section>
 
