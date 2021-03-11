@@ -1,17 +1,51 @@
-<div class="booking_form">
-  <% if booking %>
-    <h2>You already booked this trip</h2>
-    <p>Departure: <%= trip.departure_date %></p>
-    <p>Back: <%= trip.departure_date %></p>
-    <%= link_to 'Cancel booking', booking_path(booking), { method: :delete }  %>
-  <% else %>
-      <h2>Book your trip to <%= trip.planet.name %></h2>
-      <p>Price per person: <%= trip.price %> ₿ </p>
-      <p>Departure: <%= trip.departure_date %></p>
-      <p>Back: <%= trip.departure_date %></p>
-
-      <%= simple_form_for [trip, new_booking] do |f|%>
-        <%= f.button :submit, 'Book now!', class: 'btn btn-primary w-100 rounded'%>
-      <% end %>
-  <% end %>
+<% if trip.captain == current_user %>
+  <div class="booking-form">
+    <% if trip.need_approval %>
+    <h2><%= trip.need_approval %> pending for your confirmation</h2>
+    <ul>
+       <% trip.bookings.each do |booking| %>
+          <% unless booking.status %>
+            <p><%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'Confirm', approve_path(booking) %></p>
+          <% end %>
+       <% end %>
+    </ul>
+    <% else %>
+      <h2>No pending requests!</h2>
+      <p><%= trip.users.count %> pirate on board!</p>
+      <p><%= trip.days_left %> days left! </p>
+    <% end %>
   </div>
+<% else %>
+  <div class="booking_form">
+    <% if booking %>
+      <% if booking.status  %>
+
+        <h2>You are on board!</h2>
+        <p><%= trip.days_left %> days left! </p>
+        <p>Departure: <%= trip.departure_date %></p>
+        <p>Back: <%= trip.departure_date %></p>
+        <%= link_to 'Cancel booking', booking_path(booking), { method: :delete }  %>
+
+      <% else %>
+
+      <h2>Pending for Approval</h2>
+        <p>Captain <%= trip.captain.first_name %> <%= trip.captain.last_name %> needs to confirm your booking! </p>
+        <p><%= trip.days_left %> days left! </p>
+        <%= link_to 'Cancel booking', booking_path(booking), { method: :delete }  %>
+      <% end %>
+
+    <% else %>
+
+        <h2>Book your trip to <%= trip.planet.name %></h2>
+        <p>Price per person: <%= trip.price %> ₿ </p>
+        <p>Departure: <%= trip.departure_date %></p>
+        <p>Back: <%= trip.departure_date %></p>
+
+        <%= simple_form_for [trip, new_booking] do |f|%>
+          <%= f.button :submit, 'Book now!', class: 'btn btn-primary w-100 rounded'%>
+        <% end %>
+    <% end %>
+    </div>
+<% end %>
+
+
