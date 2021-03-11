@@ -1,6 +1,5 @@
 
 <div class="container trip-container d-flex">
-
   <div class="container d-flex flex-column align-items-center justify-content-spacearound">
      <h1 class="trip-title"><%= @trip.name %></h1>
     <%= cl_image_tag @trip.photo.key, height: 600, width: 400, crop: :fill, class: 'image-show' %>
@@ -21,11 +20,12 @@
             <span><i id="medal-icon-negative" class="fas fa-medal"></i></span>
           <% end %>
        </p>
-       <p class="text-center"><%= @trip.captain.personality %></p>
+       <p><%= @trip.captain.personality %></p>
      </div>
   </div>
 
   <div class="container trip-detail-card">
+    <%= render_breadcrumbs :separator => ' / ' %>
     <div class="trip-info">
       <%= render 'bookings/booking_form', booking: @booking, trip: @trip, new_booking: @new_booking %>
     </div>

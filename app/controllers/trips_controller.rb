@@ -2,6 +2,7 @@ class TripsController < ApplicationController
   before_action :find_trip, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: :show
 
+  add_breadcrumb "Home", :root_path
 
   def index
     # current_user = user who is logged in
@@ -20,6 +21,7 @@ class TripsController < ApplicationController
 
   def show
     authorize @trip
+    add_breadcrumb "#{@trip.name}", "trips/#{@trip.id}"
     @new_booking = Booking.new # need for booking form :)
     @booking = false
     if @trip.bookings.size.positive?
