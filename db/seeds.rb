@@ -7,31 +7,6 @@ User.destroy_all
 Spaceship.destroy_all
 Planet.destroy_all
 
-# NOT USE THIS FOR NOW WE CREATE ONLY A FEW USERS
-# 3.times do
-#   User.create!(
-#       email: Faker::Internet.email,
-#       first_name: Faker::Name.first_name,
-#       last_name: Faker::Name.last_name,
-#       password: Faker::Alphanumeric.alphanumeric(number: 10),
-#       username: "#{Faker::Movies::StarWars.vehicle}#{rand(0..1000)}",
-#       date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
-#       is_captain: false
-#     )
-# end
-# 10.times do
-#   User.create!(
-#       email: Faker::Internet.email,
-#       first_name: Faker::Name.first_name,
-#       last_name: Faker::Name.last_name,
-#       password: Faker::Alphanumeric.alphanumeric(number: 10),
-#       username: "#{Faker::Movies::StarWars.vehicle}#{rand(0..1000)}",
-#       date_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
-#       is_captain: true
-#     )
-# end
-
-
 #Captains Profiles
 anakin =   User.new(
       email: 'anakin@gmail.com',
@@ -40,6 +15,8 @@ anakin =   User.new(
       password: 'password',
       username: 'Ani-Skywalker19',
       date_birth: '12/11/21',
+      experience: 4,
+      personality:'Super stubborn and will never admit when they’re wrong',
       is_captain: true
     )
 anakin.photo.attach(
@@ -54,6 +31,8 @@ leila =   User.new(
       password: 'password',
       username: 'Princess-Leila12',
       date_birth: '12/10/21',
+      experience: 5,
+      personality:'Charismatic and can convince anyone to do their bidding',
       is_captain: true
     )
 leila.photo.attach(
