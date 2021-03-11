@@ -20,6 +20,14 @@ class Trip < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+  def been_booked_by?(user)
+    user.bookings.each do |booking|
+      if booking.user == user && booking.trip == self
+
+      end
+    end
+  end
+
   def days_left
     (departure_date - Date.today).to_i
   end
