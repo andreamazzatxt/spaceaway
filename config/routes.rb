@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   # reviews are part of booking not of trips
   resources :bookings, only: :destroy do
+    member do
+      patch :accept
+      patch :decline
+    end
     resources :reviews, only: [:create, :edit]
   end
 

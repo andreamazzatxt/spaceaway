@@ -14,6 +14,17 @@
             <h5><%= trip.name %></h5>
             <p class="trip-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing</p>
           </div>
+          <div>
+            <% if current_user.is_captain %>
+              <% trip.bookings.each do |booking| %>
+              <%= booking.user.first_name %>
+              <%= booking.booking_status %>
+              <%= link_to "accept", accept_booking_path(booking), class: 'btn btn-primary w-100 rounded', method: :patch  %>
+              <!-- add: button to change status -->
+             <% end %>
+           <% end %>
+
+          </div>
         </div>
         </div>
 
@@ -21,3 +32,5 @@
         </div>
   </div>
 </section>
+
+
