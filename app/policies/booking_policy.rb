@@ -28,6 +28,5 @@ class BookingPolicy < ApplicationPolicy
 
   def approve?
     @user == @record.trip.captain
-
   end
 end

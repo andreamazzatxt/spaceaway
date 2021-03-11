@@ -2,8 +2,10 @@ class TripsController < ApplicationController
   before_action :find_trip, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: :show
 
+  add_breadcrumb "Home", :root_path
 
   def index
+    add_breadcrumb "#{current_user.first_name} Trips", trips_path
     # current_user = user who is logged in
     if current_user && current_user.is_captain
       @trips = Trip.where(captain_id: current_user.id).select do |t|
@@ -20,6 +22,7 @@ class TripsController < ApplicationController
 
   def show
     authorize @trip
+    add_breadcrumb "#{@trip.name}", trip_path(@trip)
     @new_booking = Booking.new # need for booking form :)
     @booking = false
     if @trip.bookings.size.positive?
@@ -30,6 +33,7 @@ class TripsController < ApplicationController
   end
 
   def new
+    add_breadcrumb 'New Trip', new_trip_path
     @trip = Trip.new
     authorize @trip
   end

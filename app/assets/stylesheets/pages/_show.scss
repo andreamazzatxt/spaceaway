@@ -12,10 +12,15 @@
   flex-flow: column wrap;
   justify-content: space-around;
   align-items: center;
+  transition-duration: 500ms;
+}
+
+.trip-info:hover{
+  transform: scale(1.08);
 }
 
 .trip-container {
-  padding-top: 100px;
+  padding-top: 30px;
 }
 
 .review-card {
@@ -26,7 +31,14 @@
   text-align: center;
 }
 
+
 // CSS trips page
+
+.breadcrumb-container {
+  padding-top: 100px;
+  text-align: center;
+}
+
 
 .fa-star {
   color: yellow;
@@ -73,3 +85,36 @@ h6 {
 .container-my-trips-page h1 {
   margin-bottom: 30px;
 }
+=======
+.image-show {
+  margin-bottom:30px;
+}
+
+.narrow{
+  max-width: 400px;
+}
+
+.captain-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-around
+}
+
+#medal-icon {
+  color: $primary;
+  font-size: 18px;
+
+}
+
+#medal-icon-negative {
+  color: $secondary;
+  font-size: 18px;
+}
+
+.captain-medals {
+  margin: 10px 0;
+}
+
+
+
+

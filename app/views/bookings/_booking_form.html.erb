@@ -1,22 +1,17 @@
 <% if trip.captain == current_user %>
-  <div class="booking-form">
+
     <% if trip.need_approval %>
-    <h2><%= trip.need_approval %> pending for your confirmation</h2>
-    <ul>
-       <% trip.bookings.each do |booking| %>
-          <% unless booking.status %>
-            <p><%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'Confirm', approve_path(booking) %></p>
-          <% end %>
-       <% end %>
-    </ul>
+    <h2><%= trip.days_left %> days to go! </h2>
+       <%= link_to "#{trip.need_approval} requets to approve", trips_path, class: 'btn btn-primary my-3'%>
     <% else %>
-      <h2>No pending requests!</h2>
+      <h2><%= trip.days_left %> days to go! </h2>
       <p><%= trip.users.count %> pirate on board!</p>
+      <p>No pendindg requests</p>
       <p><%= trip.days_left %> days left! </p>
     <% end %>
-  </div>
+
 <% else %>
-  <div class="booking_form">
+
     <% if booking %>
       <% if booking.status  %>
 
@@ -28,7 +23,7 @@
 
       <% else %>
 
-      <h2>Pending for Approval</h2>
+      <h2 style="color:$info">Pending</h2>
         <p>Captain <%= trip.captain.first_name %> <%= trip.captain.last_name %> needs to confirm your booking! </p>
         <p><%= trip.days_left %> days left! </p>
         <%= link_to 'Cancel booking', booking_path(booking), { method: :delete }  %>
@@ -45,6 +40,6 @@
           <%= f.button :submit, 'Book now!', class: 'btn btn-primary w-100 rounded'%>
         <% end %>
     <% end %>
-    </div>
+
 <% end %>
 
