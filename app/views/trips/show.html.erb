@@ -1,4 +1,6 @@
-
+<p class="breadcrumb-container">
+  <%= render_breadcrumbs :separator => ' / ' %>
+</p>
 <div class="container trip-container d-flex">
   <div class="container d-flex flex-column align-items-center justify-content-spacearound">
      <h1 class="trip-title"><%= @trip.name %></h1>
@@ -25,7 +27,7 @@
   </div>
 
   <div class="container trip-detail-card">
-    <%= render_breadcrumbs :separator => ' / ' %>
+
     <div class="trip-info">
       <%= render 'bookings/booking_form', booking: @booking, trip: @trip, new_booking: @new_booking %>
     </div>
@@ -41,7 +43,6 @@
       <p>Info: <%= @trip.spaceship.speciality %></p>
       <p>Capacity: <%= @trip.spaceship.capacity %> pirates</p>
     </div>
-    <%= link_to 'Back', root_path, class: 'btn btn-secondary w-100 rounded' %>
   </div>
 </div>
 <div class="container reviews-container">
