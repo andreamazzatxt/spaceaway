@@ -19,6 +19,9 @@
 *::after {
   box-sizing: border-box;
 }
+p{
+  font-size: 11.2px;
+}
 
 body,html {
   background-color:$body-color;
@@ -36,3 +39,10 @@ img {
   padding-top: 100px;
   padding-bottom: 200px;
 }
+ul{
+  list-style-type:none;
+}
+
+// a:hover{
+//   text-decoration:none;
+// }

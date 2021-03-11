@@ -55,9 +55,14 @@ main {
   }
   &-info{
     padding:.8rem;
-    .trip-paragraph{
-      font-size: .7rem;
+    .trip-title{
+      font-size: .8rem;
+      text-align:left;
     }
+    .trip-paragraph{
+      font-size: .6rem;
+    }
+
   }
 }
 }
@@ -66,9 +71,6 @@ main {
   text-decoration: none !important;
 }
 
-.trips-container{
-  padding-top:2rem;
-}
 
 
 #avatar-image{

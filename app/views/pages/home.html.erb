@@ -9,7 +9,7 @@
 <!-- grid trip section -->
 
 <section id="home-trips">
-  <div class="container trips-container">
+  <div class="container pt-3">
 
     <div class="row">
     <% @trips.each do |trip| %>
@@ -21,7 +21,7 @@
               <%= cl_image_tag trip.photo.key, height: 300, width: 335, crop: :fill %>
             </div>
             <div class="card-info">
-              <h5><%= trip.name %></h5>
+              <h5 class="trip-title"><%= trip.name %></h5>
               <p class="trip-paragraph"> <%= trip.description %></p>
             </div>
           </div>
