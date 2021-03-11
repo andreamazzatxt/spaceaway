@@ -8,6 +8,11 @@ class TripsController < ApplicationController
       @trips = Trip.where(captain_id: current_user.id).select do |t|
         t.bookings.count.positive?
       end
+    elsif current_user && !current_user.is_captain
+      @bookings = Booking.where(user: current_user)
+      @trips = @bookings.map do |booking|
+        booking.trip
+      end
     else @trips = Trip.all
     end
   end
