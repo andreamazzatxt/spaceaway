@@ -16,8 +16,6 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: [:create, :edit]
   end
-
-  get '/approve/:id', to: "bookings#approve", as: 'approve'
   resources :reviews, only: :destroy
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

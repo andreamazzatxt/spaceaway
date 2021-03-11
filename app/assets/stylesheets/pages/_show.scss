@@ -12,6 +12,11 @@
   flex-flow: column wrap;
   justify-content: space-around;
   align-items: center;
+  transition-duration: 500ms;
+}
+
+.trip-info:hover{
+  transform: scale(1.08);
 }
 
 .trip-container {
@@ -31,3 +36,35 @@
   color: yellow;
   margin: 5px;
 }
+
+.image-show {
+  margin-bottom:30px;
+}
+
+.narrow{
+  max-width: 400px;
+}
+
+.captain-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-around
+}
+
+#medal-icon {
+  color: $primary;
+  font-size: 18px;
+
+}
+
+#medal-icon-negative {
+  color: $secondary;
+  font-size: 18px;
+}
+
+.captain-medals {
+  margin: 10px 0;
+}
+
+
+
