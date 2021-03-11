@@ -19,6 +19,9 @@
 *::after {
   box-sizing: border-box;
 }
+p{
+  font-size: 11.2px;
+}
 
 body,html {
   background-color:$body-color;
@@ -40,6 +43,6 @@ ul{
   list-style-type:none;
 }
 
-a:hover{
-  text-decoration:none;
-}
+// a:hover{
+//   text-decoration:none;
+// }
