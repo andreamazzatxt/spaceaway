@@ -2,6 +2,7 @@ class TripsController < ApplicationController
   before_action :find_trip, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: :show
 
+
   def index
     # current_user = user who is logged in
     if current_user && current_user.is_captain

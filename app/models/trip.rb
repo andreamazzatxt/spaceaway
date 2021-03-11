@@ -7,6 +7,19 @@ class Trip < ApplicationRecord
   has_many :users, through: :bookings
   has_many :reviews, through: :bookings
   validates :name, :price, :departure_date, :arrival_date, :planet, presence: true
+
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [:name, :description],
+    associated_against: {
+      planet: [:name, :description],
+      spaceship: [:name]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def days_left
     (departure_date - Date.today).to_i
   end

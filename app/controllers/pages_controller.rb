@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   def home
-    @trips = Trip.all
+    if params[:query].present?
+      @trips = Trip.global_search(params[:query])
+    else
+      @trips = Trip.all
+    end
   end
 end
-
