@@ -26,6 +26,7 @@
   text-align: center;
 }
 
+// CSS trips page
 
 .fa-star {
   color: yellow;
@@ -63,4 +64,12 @@ h6 {
   border-radius:8px;
   background-color: $secondary-dark;
   color:$text-color;
+}
+
+.container-my-trips-page {
+  padding-top: 60px
+}
+
+.container-my-trips-page h1 {
+  margin-bottom: 30px;
 }
