@@ -19,14 +19,14 @@
 *::after {
   box-sizing: border-box;
 }
-p{
-  font-size: 11.2px;
-}
 
 body,html {
   background-color:$body-color;
   color: $text-color;
   scroll-behavior: smooth;
+}
+br{
+  border-radius:2rem;
 }
 
 img {
