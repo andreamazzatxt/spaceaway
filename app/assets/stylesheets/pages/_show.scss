@@ -54,3 +54,13 @@
 h6 {
   text-decoration: underline;
 }
+.card-captain {
+  text-decoration: none !important;
+  position: relative;
+  width:350px;
+  height:auto;
+  margin-bottom:3rem;
+  border-radius:8px;
+  background-color: $secondary-dark;
+  color:$text-color;
+}
