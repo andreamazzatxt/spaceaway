@@ -3,9 +3,10 @@ class ReviewsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
     @review.booking = @booking
+    @review.review_type = 'trip-review'
     authorize @review
     if @review.save
-      redirect_to trip_path(@booking.trip)
+      redirect_to trip_path(@booking.trip), notice: 'Review succesfull saved'
     else
       render "trips/show"
     end
@@ -25,5 +26,3 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:rating, :content)
   end
 end
-
-

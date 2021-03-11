@@ -31,6 +31,9 @@
   text-align: center;
 }
 
+.reviews-container {
+  margin-bottom: 30px;
+}
 
 // CSS trips page
 
@@ -40,8 +43,12 @@
 }
 
 
-.fa-star {
-  color: yellow;
+#active-star {
+  color: $primary;
+  margin: 5px;
+}
+#inactive-star{
+  color: $secondary;
   margin: 5px;
 }
 

@@ -8,24 +8,23 @@ class Trip < ApplicationRecord
   has_many :reviews, through: :bookings
   validates :name, :price, :departure_date, :arrival_date, :planet, presence: true
 
-
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [:name, :description],
-    associated_against: {
-      planet: [:name, :description],
-      spaceship: [:name]
-    },
-    using: {
-      tsearch: { prefix: true }
-    }
+                  against: [:name, :description],
+                  associated_against: {
+                    planet: [:name, :description],
+                    spaceship: [:name]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   def been_booked_by?(user)
+    condition = false
     user.bookings.each do |booking|
-      if booking.user == user && booking.trip == self
-
-      end
+      condition = true if booking.user == user && booking.trip.id == id
     end
+    condition
   end
 
   def days_left

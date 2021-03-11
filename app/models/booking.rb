@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :trip
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   def booking_status
     if self.status.nil?
