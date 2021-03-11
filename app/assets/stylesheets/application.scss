@@ -32,6 +32,16 @@ br{
 img {
   border-radius: 20px;
 }
+.logo{
+  width:8rem;
+}
+.logo-footer{
+  text-align:center;
+}
+.logo-title{
+  text-align:center;
+  margin-bottom:2rem;
+}
 
 // NEED to move this to new page scss component
 .padding-form {
