@@ -31,16 +31,61 @@
   text-align: center;
 }
 
+
+// CSS trips page
+
 .breadcrumb-container {
   padding-top: 100px;
   text-align: center;
 }
+
 
 .fa-star {
   color: yellow;
   margin: 5px;
 }
 
+.product-description {
+  flex: 1 0 auto;
+  padding: 20px;
+}
+.list-inline {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+}
+.product-controls  {
+  font-size: 15px;
+  color: #CCCCCC;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+h6 {
+  text-decoration: underline;
+}
+.card-captain {
+  text-decoration: none !important;
+  position: relative;
+  width:350px;
+  height:auto;
+  margin-bottom:3rem;
+  border-radius:8px;
+  background-color: $secondary-dark;
+  color:$text-color;
+}
+
+.container-my-trips-page {
+  padding-top: 60px
+}
+
+.container-my-trips-page h1 {
+  margin-bottom: 30px;
+}
+=======
 .image-show {
   margin-bottom:30px;
 }
@@ -69,6 +114,7 @@
 .captain-medals {
   margin: 10px 0;
 }
+
 
 
 
