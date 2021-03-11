@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.trip = Trip.find(params[:trip_id])
     @booking.user = current_user
-    @booking.status = true
+    @booking.status = false
     authorize @booking
     redirect_to trip_path(@booking.trip) if @booking.save
   end
@@ -16,5 +16,11 @@ class BookingsController < ApplicationController
     redirect_to trip_path(@booking.trip)
   end
 
+  def approve
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(status: true)
 
+    redirect_to trip_path(@booking.trip)
+  end
 end
