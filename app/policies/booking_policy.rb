@@ -16,4 +16,12 @@ class BookingPolicy < ApplicationPolicy
   def destroy?
     @user = @record.user
   end
+
+  def accept?
+    record.trip.captain == user
+  end
+
+  def decline?
+    record.trip.captain == user
+  end
 end
