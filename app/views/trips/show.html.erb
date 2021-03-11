@@ -1,13 +1,33 @@
-
+<p class="breadcrumb-container">
+  <%= render_breadcrumbs :separator => ' / ' %>
+</p>
 <div class="container trip-container d-flex">
-
-  <div class="container d-flex flex-column align-items-center justify-content-start">
+  <div class="container d-flex flex-column align-items-center justify-content-spacearound">
      <h1 class="trip-title"><%= @trip.name %></h1>
-    <%= cl_image_tag @trip.photo.key, height: 600, width: 400, crop: :fill %>
-    <%= link_to 'Back', root_path %>
+    <%= cl_image_tag @trip.photo.key, height: 600, width: 400, crop: :fill, class: 'image-show' %>
+     <div class="trip-info narrow">
+       <h2>Trip description</h2>
+       <p><%= @trip.description %></p>
+     </div>
+     <div class="trip-info narrow">
+      <div class="captain-title">
+        <h2>About <%= @trip.captain.first_name %> <%= @trip.captain.last_name %></h2>
+        <%= cl_image_tag @trip.captain.photo.key, height:80, width: 80, crop: :fill %>
+      </div>
+       <p class="captain-medals">
+          <% @trip.captain.experience.times do %>
+            <span><i id="medal-icon" class="fas fa-medal"></i></span>
+          <% end %>
+          <% (5 - @trip.captain.experience).times do %>
+            <span><i id="medal-icon-negative" class="fas fa-medal"></i></span>
+          <% end %>
+       </p>
+       <p><%= @trip.captain.personality %></p>
+     </div>
   </div>
 
   <div class="container trip-detail-card">
+
     <div class="trip-info">
       <%= render 'bookings/booking_form', booking: @booking, trip: @trip, new_booking: @new_booking %>
     </div>
