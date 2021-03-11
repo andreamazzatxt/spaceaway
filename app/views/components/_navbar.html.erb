@@ -20,19 +20,21 @@
               <%= render "./components/avatar" %>
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to "Home", root_path, class:"dropdown-item" %>
               <%= link_to "Create a new trip", new_trip_path, class:"dropdown-item" %>
-              <%= link_to "my trips", trips_path, class:"dropdown-item" %>
-              <a class="dropdown-item" href="#">Submenu item</a>
+              <%= link_to "My trips", trips_path, class:"dropdown-item" %>
             </div>
           </div>
-
-
-
-
         <% else %>
-          <%= link_to root_path  class: "avatar" do %>
-            <%= render "./components/avatar" %>
-          <% end %>
+          <div class="dropdown">
+              <a class="dropdown-toggle arrow" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= render "./components/avatar" %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to "Home", root_path, class:"dropdown-item" %>
+                <%= link_to "My trips", trips_path, class:"dropdown-item" %>
+              </div>
+            </div>
         <% end %>
       <% end %>
 
