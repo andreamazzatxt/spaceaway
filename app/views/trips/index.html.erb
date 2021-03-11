@@ -14,23 +14,35 @@
             <h5><%= trip.name %></h5>
             <p class="trip-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing</p>
           </div>
-          <div>
+
+      <ul class="list-unstyled">
+        <li class="product-description">
+          <h6>See Pirates on your trip</h6>
             <% if current_user.is_captain %>
               <% trip.bookings.each do |booking| %>
-              <%= booking.user.first_name %>
-              <%= booking.booking_status %>
-              <%= link_to "accept", accept_booking_path(booking), class: 'btn btn-primary w-100 rounded', method: :patch  %>
-              <!-- add: button to change status -->
-             <% end %>
-           <% end %>
-
-          </div>
-        </div>
-        </div>
-
-        <% end %>
-        </div>
+                <%= booking.user.first_name %>
+                  Status:
+                  <%= booking.booking_status %>
+                  <ul class="list-inline product-controls">
+                      <% if booking.booking_status == "pending" %>
+                        <li><%= link_to "accept", accept_booking_path(booking), class: 'btn btn-success rounded', method: :patch  %></li>
+                        <li><%= link_to "decline", decline_booking_path(booking), class: 'btn btn-warning rounded', method: :patch  %></li>
+                      <% elsif booking.booking_status == "accepted"  %>
+                        <li><%= link_to "decline", decline_booking_path(booking), class: 'btn btn-warning rounded', method: :patch  %></li>
+                      <% else %>
+                        <li><%= link_to "accept", accept_booking_path(booking), class: 'btn btn-success rounded', method: :patch  %></li>
+                      <% end %>
+                  </ul>
+              <% end %>
+            <% end %>
+         </li>
+          </ul>
+      </ul>
+    </div>
   </div>
+</div>
+        <% end %>
+
 </section>
 
 

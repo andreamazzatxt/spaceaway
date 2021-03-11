@@ -24,6 +24,7 @@ class BookingPolicy < ApplicationPolicy
 
   def decline?
     record.trip.captain == user
+  end
 
   def approve?
     @user == @record.trip.captain
