@@ -1,34 +1,55 @@
 
-  <nav id="navbar-primary" role="navigation">
-      <ul class="nav navbar-nav">
+<nav id="navbar-primary" role="navigation">
+  <ul class="nav navbar-nav">
 
-        <div class="logo-div">
-          <li>
-            <%= link_to root_path do %>
-              <%= render "./components/logo" %>
-            <% end %>
-          </li>
-        </div>
+    <div class="logo-div">
+      <li>
+        <%= link_to root_path do %>
+        <%= render "./components/logo" %>
+        <% end %>
+      </li>
+    </div>
 
-        <div class="avatar-div">
+    <div class="avatar-div">
 
-          <% if !user_signed_in? %>
-            <%= link_to "Log in", new_user_registration_path %>
-          <% else %>
-              <% if current_user.is_captain? %>
-                <%= link_to new_trip_path  class: "avatar" do %>
-                <%= render "./components/avatar" %>
-                <% end %>
-              <% else %>
-                <%= link_to root_path  class: "avatar" do %>
-                <%= render "./components/avatar" %>
-                <% end %>
-              <% end %>
+      <% if !user_signed_in? %>
+        <%= link_to "Log in", new_user_registration_path %>
+      <% else %>
+        <% if current_user.is_captain? %>
+
+          <div class="dropdown">
+            <a class="dropdown-toggle arrow" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= render "./components/avatar" %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to "Create a new trip", new_trip_path, class:"dropdown-item" %>
+              <%= link_to "my trips", new_trip_path, class:"dropdown-item" %>
+              <a class="dropdown-item" href="#">Submenu item</a>
+            </div>
+          </div>
+
+
+
+
+        <% else %>
+          <%= link_to root_path  class: "avatar" do %>
+            <%= render "./components/avatar" %>
           <% end %>
+        <% end %>
+      <% end %>
 
-        </div>
-      </ul>
+    </div>
+  </ul>
 </nav>
 
-
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
 
