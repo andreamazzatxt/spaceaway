@@ -7,13 +7,13 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "flatpickr/dist/flatpickr";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/home";
 @import "pages/show";
 @import "pages/index";
-
 
 *,
 *::before,
@@ -57,3 +57,5 @@ ul{
 // a:hover{
 //   text-decoration:none;
 // }
+
+
