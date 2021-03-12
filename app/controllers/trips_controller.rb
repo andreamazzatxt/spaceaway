@@ -23,6 +23,7 @@ class TripsController < ApplicationController
   def show
     authorize @trip
     add_breadcrumb "#{@trip.name}", trip_path(@trip)
+    @review = Review.new()
     @new_booking = Booking.new # need for booking form :)
     @booking = false
     if @trip.bookings.size.positive?
@@ -30,6 +31,7 @@ class TripsController < ApplicationController
         @booking = booking if booking.user == current_user
       end
     end
+
   end
 
   def new

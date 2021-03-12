@@ -91,6 +91,7 @@ main {
   margin-bottom:2rem;
 }
 
+
 ///---------------------media queries
 
 @media(max-width: 600px){
@@ -129,6 +130,37 @@ main {
    }
   }
 
+
+// --------------------------- trips captain / pirat overview section--------------------------------------
+
+  .card-trips {
+  text-decoration: none !important;
+  position: relative;
+  width:350px;
+  height:auto;
+  margin-bottom:3rem;
+  border-radius:8px;
+  background-color: $secondary-dark;
+  color:$text-color;
+
 }
 
+.admission-process {
+  display: inline-block;
+  font-size: .6rem;
+  padding-top: 10px;
+}
 
+.card-info h5 {
+  font-size: 12px;
+}
+
+.booked-pirate {
+  float: left;
+}
+
+.booking-status {
+  float: right;
+  list-style: none;
+
+}

@@ -14,6 +14,11 @@
 
   <body>
     <%= render "./components/navbar" %>
+    <% flash.each do |type, msg| %>
+      <div id="alert-timer" class="alert alert-primary">
+        <%= msg.html_safe %>
+      </div>
+    <% end %>
     <%= yield %>
         <%= render "./components/footer" %>
   </body>

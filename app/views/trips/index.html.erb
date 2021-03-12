@@ -1,49 +1,55 @@
-<p class="breadcrumb-container">
-  <%= render_breadcrumbs :separator => ' / ' %>
-</p>
-<h1>My Trips</h1>
-
 <section id="home-trips">
-  <div class="container-my-trips-page">
-    <h1>My Trips</h1>
-      <% @trips.each do |trip| %>
-        <div class="card-captain">
-          <div>
-            <div class="image">
-              <img style="width:100%; object-fit: cover;"src="https://img.yqqlm.com/index/index/getInterUrl?uicrIvZQ=cc5a13776133d3338c3a880cb6528504" alt="">
-            </div>
-            <div class="card-info">
-              <img id="avatar-image"src="https://images-na.ssl-images-amazon.com/images/I/719vNNdMaZL._SL1500_.jpg" style="width: 2.7rem;height: 2.7rem;"alt="">
-              <h5><%= trip.name %></h5>
-              <p class="trip-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing</p>
-            </div>
-          </div>
 
-          <div>
-            <ul class="list-unstyled">
-              <h6>See Pirates on your trip</h6>
+  <!-- Breadcrumb -->
+  <p class="breadcrumb-container">
+  <%= render_breadcrumbs :separator => ' / ' %>
+  </p>
+
+  <div class="container pt-3">
+    <h1>My Trips</h1>
+      <div class="row">
+        <% @trips.each do |trip| %>
+          <div class="col">
+            <div class="card-trips">
+              <%= cl_image_tag trip.captain.photo.key, class: 'avatar',id: 'absolute-avatar', height: 40, width: 40, crop: :fill %>
+              <div class="image">
+                <%= cl_image_tag trip.photo.key, height: 300, width: 335, crop: :fill %>
+              </div>
+              <div class="card-info">
+                <h5 class="trip-title"><%= trip.name %></h5>
+                <p class="trip-paragraph"> <%= trip.description %></p>
+
+              <!-- Trip Card : Booking Info-->
+              <h5>See Pirates on your trip</h5>
+              <div class="card-info trip-paragraph">
+                <!-- Trip Card : Which Pirates? -->
                 <% if current_user.is_captain %>
                   <% trip.bookings.each do |booking| %>
-                    <%= booking.user.first_name %>
-                      Status:
-                      <%= booking.booking_status %>
-                  <ul class="list-inline product-controls">
-                      <% if booking.booking_status == "pending" %>
-                        <li><%= link_to "accept", accept_booking_path(booking), class: 'btn btn-success rounded', method: :patch  %></li>
-                        <li><%= link_to "decline", decline_booking_path(booking), class: 'btn btn-warning rounded', method: :patch  %></li>
-                      <% elsif booking.booking_status == "accepted"  %>
-                        <li><%= link_to "decline", decline_booking_path(booking), class: 'btn btn-warning rounded', method: :patch  %></li>
-                      <% else %>
-                        <li><%= link_to "accept", accept_booking_path(booking), class: 'btn btn-success rounded', method: :patch  %></li>
-                      <% end %>
-                  </ul>
+                   <li> <%= booking.user.first_name %> </li>
+                    <p> - Status: <%= booking.booking_status %> </p>
+                <!-- Trip Card : Booking Status ? -->
+                  <div lass="admission-process">
+                    <% if booking.booking_status == "pending" %>
+                      <%= link_to "accept", accept_booking_path(booking), class: 'btn btn-success rounded', method: :patch  %>
+                      <%= link_to "decline", decline_booking_path(booking), class: 'btn btn-warning rounded', method: :patch  %>
+                    <% elsif booking.booking_status == "accepted"  %>
+                      <%= link_to "decline", decline_booking_path(booking), class: 'btn btn-warning rounded', method: :patch  %>
+                    <% else %>
+                      <%= link_to "accept", accept_booking_path(booking), class: 'btn btn-success rounded', method: :patch  %>
+                    <% end %>
+                  </div>
                   <% end %>
-              <% end %>
-            </ul>
+                <% end %>
+              </div>
+            </div>
           </div>
+
         </div>
-      <% end %>
+        <% end %>
+    </div>
   </div>
 </section>
+
+
 
 

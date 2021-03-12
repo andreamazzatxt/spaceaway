@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = false
     authorize @booking
-    redirect_to trip_path(@booking.trip) if @booking.save
+    redirect_to trip_path(@booking.trip), notice: "Pending approval of Captain #{@booking.trip.captain.full_name}" if @booking.save
   end
 
   def destroy
@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.destroy
 
-    redirect_to trip_path(@booking.trip)
+    redirect_to trip_path(@booking.trip), notice: "Your trip to #{@booking.trip.planet.name} is CANCELLED, #{view_context.link_to 'Look for all trips!', root_path}"
   end
 
   def accept
