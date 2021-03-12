@@ -80,11 +80,19 @@ class TripsController < ApplicationController
 
   def find_spaceship
     id = params.require(:trip).permit(:spaceship)[:spaceship].to_i
-    Spaceship.find(id)
+    if id.zero?
+      Spaceship.new()
+    else
+      Spaceship.find(id)
+    end
   end
 
   def find_planet
     id = params.require(:trip).permit(:planet)[:planet].to_i
-    Planet.find(id)
+    if id.zero?
+      Planet.new()
+    else
+      Planet.find(id)
+    end
   end
 end

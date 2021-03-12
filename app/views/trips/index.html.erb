@@ -18,7 +18,7 @@
                 <p><i id="medal-icon" class="fas fa-space-shuttle"></i> <%= trip.spaceship.name %></p>
                 <p><i id="medal-icon" class="fab fa-bitcoin"></i> <%= trip.price %></p>
                 <% unless trip.bookings.size.positive? %>
-                  <%= link_to 'Cancel trip', trip_path(trip), method: :delete %>
+                  <%= link_to 'Cancel trip', trip_path(trip), method: :delete, data: { confirm: "You really want to delete your faboulus trip??"} %>
                 <% else %>
                   <p class="text-secondary">This trip is already booked you can't cancel</p>
                 <% end %>

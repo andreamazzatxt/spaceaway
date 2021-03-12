@@ -1,6 +1,6 @@
 <% if trip.captain == current_user %>
     <h2>Hi captain <%= current_user.first_name %>!</h2>
-    <p><span class="text-primary"><%= trip.days_left %></span>  days left! </p>
+    <p><span class="text-primary"><%= trip.days_left %></span>  days to go! </p>
     <p><span class="text-primary"><%= trip.users.count %> </span>  pirates has booked this trip!</p>
     <p>Total earnings: <i id="medal-icon" class="fab fa-bitcoin"></i> <%= number_with_delimiter(trip.earnings, delimiter: '.') %></p>
     <p><i  id="medal-icon" class="fas fa-plane-departure"></i> <%= trip.departure_date.to_formatted_s(:long) %></p>
@@ -17,7 +17,7 @@
       <% if booking.status  %>
 
         <h2>Booking <span class="text-success">confirmed!</span></h2>
-        <p><%= trip.days_left %> days left! </p>
+        <p><%= trip.days_left %> days to go! </p>
         <p><i  id="medal-icon" class="fas fa-plane-departure"></i> <%= trip.departure_date.to_formatted_s(:long) %></p>
         <p><i id="medal-icon" class="fas fa-plane-arrival"></i> <%= trip.departure_date.to_formatted_s(:long) %></p>
         <% if trip.reviews.size.positive? %>
@@ -34,14 +34,13 @@
 
       <% else %>
 
-      <h2 class="text-warning"> <%= link_to trip_path(trip) do %>
-         <i class="fas fa-retweet fa-sm"></i>
-         <% end %>
+      <h2 class="text-warning">
          Pending...
       </h2>
         <p>Captain <%= trip.captain.first_name %> <%= trip.captain.last_name %> needs to confirm your booking! </p>
-        <p><%= trip.days_left %> days left! </p>
+        <p><%= trip.days_left %> days to go! </p>
         <%= link_to 'Cancel booking', booking_path(booking), { method: :delete }  %>
+        <%= link_to 'Refresh', trip_path(trip) %>
       <% end %>
 
     <% else %>

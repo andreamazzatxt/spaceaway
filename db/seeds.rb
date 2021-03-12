@@ -14,9 +14,9 @@ anakin =   User.new(
       last_name: 'Skywalker',
       password: 'password',
       username: 'Ani-Skywalker19',
-      date_birth: '12/11/21',
+      date_birth: '21/11/89',
       experience: 4,
-      personality:'Super stubborn and will never admit when they’re wrong',
+      personality:'Super stubborn and will never admit when he’s wrong',
       is_captain: true
     )
 anakin.photo.attach(
@@ -24,22 +24,109 @@ anakin.photo.attach(
             filename: 'anakin.jpg',
             content_type: 'image/jpg')
 anakin.save!
+
 leila =   User.new(
       email: 'leila@gmail.com',
-      first_name: 'Leila',
+      first_name: 'Leia',
       last_name: 'Skywalker',
       password: 'password',
       username: 'Princess-Leila12',
-      date_birth: '12/10/21',
+      date_birth: '1/5/87',
       experience: 5,
       personality:'Charismatic and can convince anyone to do their bidding',
       is_captain: true
     )
 leila.photo.attach(
-            io: URI.open('https://static.fanpage.it/wp-content/uploads/sites/11/2016/12/le-iconiche-acconciature-di-carrie-fisher-in-star-wars-gli-chignon-che-hanno-fatto-la-storia.jpg'),
+            io: URI.open("https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Fwinteriscoming.net%2Ffiles%2F2019%2F07%2Fleia-crop.jpeg"),
             filename: 'leila.jpg',
             content_type: 'image/jpg')
 leila.save!
+
+obiwan =   User.new(
+      email: 'obione@gmail.com',
+      first_name: 'Obi-Wan',
+      last_name: 'Kenobi',
+      password: 'password',
+      username: 'Obi-Obi-1',
+      date_birth: '10/9/62',
+      experience: 4,
+      personality:'You can kill me, but you will never destroy me. It takes strength to resist the dark side. Only the weak embrace it.',
+      is_captain: true
+    )
+obiwan.photo.attach(
+            io: URI.open('https://leganerd.com/wp-content/uploads/2019/12/ewan-mcgregor-obi-wan.jpg'),
+            filename: 'kenobi.jpg',
+            content_type: 'image/jpg')
+obiwan.save!
+
+
+sidius =   User.new(
+      email: 'sidius@gmail.com',
+      first_name: 'Darth',
+      last_name: 'Sidius',
+      password: 'password',
+      username: 'Sidius-1',
+      date_birth: '10/9/32',
+      experience: 4,
+      personality:'There is only one plan—one great design which shall govern the universe—mine.',
+      is_captain: true
+    )
+sidius.photo.attach(
+            io: URI.open('https://upload.wikimedia.org/wikipedia/en/8/8f/Emperor_RotJ.png'),
+            filename: 'sidius.png',
+            content_type: 'image/png')
+sidius.save!
+
+picard =   User.new(
+      email: 'picard@gmail.com',
+      first_name: 'Jean-Luc',
+      last_name: 'Picard',
+      password: 'password',
+      username: 'Picky-32',
+      date_birth: '10/9/30',
+      experience: 3,
+      personality:'The line must be drawn here! This far, no further!',
+      is_captain: true
+    )
+picard.photo.attach(
+            io: URI.open('https://www.ilcineocchio.it/cine/wp-content/uploads/2017/12/star-trek-patrick-stewart.jpg'),
+            filename: 'picard.jpg',
+            content_type: 'image/jpg')
+picard.save!
+
+spock =   User.new(
+      email: 'spock@gmail.com',
+      first_name: 'Spock',
+      last_name: 'Sarek',
+      password: 'password',
+      username: 'Spocky87',
+      date_birth: '2/3/87',
+      experience: 5,
+      personality:'The line must be drawn here! This far, no further!',
+      is_captain: true
+    )
+spock.photo.attach(
+            io: URI.open('https://st.ilfattoquotidiano.it/wp-content/uploads/2015/02/spok-et-les-cohanim.jpg'),
+            filename: 'spock.jpg',
+            content_type: 'image/jpg')
+spock.save!
+
+jabba =   User.new(
+      email: 'jabba@gmail.com',
+      first_name: 'Jabba',
+      last_name: 'The Hutt',
+      password: 'password',
+      username: 'HuttyHot87',
+      date_birth: '1/2/45',
+      experience: 2,
+      personality:'I will not give up my favorite decoration. I like Captain Solo where he is.',
+      is_captain: true
+    )
+jabba.photo.attach(
+            io: URI.open('https://upload.wikimedia.org/wikipedia/en/5/53/Jabba_the_Hutt_in_Return_of_the_Jedi_%281983%29.png'),
+            filename: 'jabba.png',
+            content_type: 'image/png')
+jabba.save!
 
 #Pirates profile
 chewbekka =   User.new(
@@ -70,61 +157,85 @@ chewbekka.save!
     )
 
 
-
-spaceship_bg = Spaceship.new(
+# SPACESHIPS
+battlestar = Spaceship.new(
   name: "Battlestar Galactica",
-  capacity: rand(0..50),
+  capacity: rand(10..50),
   speciality: "faster-than-light"
   )
-spaceship_bg.photo.attach(
+battlestar.photo.attach(
             io: URI.open('https://www.denofgeek.com/wp-content/uploads/2019/09/battlestar-galactica-reboot-1.jpeg?resize=768%2C432'),
             filename: 'battlestar.jpeg',
             content_type: 'image/jpeg')
-spaceship_bg.save!
+battlestar.save!
 
-spaceship_d =Spaceship.new(
+discovery =Spaceship.new(
   name: "U.S.S. Discovery",
-  capacity: rand(0..50),
+  capacity: rand(10..50),
   speciality: "avoids enemy attacks"
   )
-spaceship_d.photo.attach(
+discovery.photo.attach(
             io: URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLbLl1juEdWM-ffXY0SpVhZ2pPtX_6VdTkGQ&usqp=CAU'),
             filename: 'discovery.jpeg',
             content_type: 'image/jpeg')
-spaceship_d.save!
+discovery.save!
 
-spaceship_et = Spaceship.new(
+transporter = Spaceship.new(
   name: "Eagle Transporter",
-  capacity: rand(0..50),
+  capacity: rand(10..50),
   speciality: "nice interior design"
   )
-spaceship_et.photo.attach(
+transporter.photo.attach(
             io: URI.open('https://fsb.zobj.net/crop.php?r=x1_gw3mwYaHLK-abs9sfPuVNHQFRTDlliXAixArSRBYX4h9mbV8ioiEyFj1H9hg4Pb4eFsRKN1pVUn893AbQUtSbQkVlXyU6-IiDSL2t5Muj1uUjMsOVsdqvX5hUXB_qo0bphh0wHhI9rAhV'),
             filename: 'eagle_transporter.jpeg',
             content_type: 'image/jpeg')
-spaceship_et.save!
+transporter.save!
 
-spaceship_us = Spaceship.new(
+sulaco = Spaceship.new(
   name: "USS Sulaco",
-  capacity: rand(0..50),
+  capacity: rand(10..50),
   speciality: "relax pur with own space garden"
   )
-spaceship_us.photo.attach(
+sulaco.photo.attach(
             io: URI.open('https://i.ytimg.com/vi/74muAbxYsvo/maxresdefault.jpg'),
             filename: 'sulaco.jpeg',
             content_type: 'image/jpeg')
-spaceship_us.save!
+sulaco.save!
 
-spaceship_tmf = Spaceship.new(
+falcon = Spaceship.new(
   name: "The Millennium Falcon",
   capacity: rand(0..50),
   speciality: "a lot of entertainment on board"
   )
-spaceship_tmf.photo.attach(
+falcon.photo.attach(
             io: URI.open('https://image.winudf.com/v2/image/Y29tLnN0YXIuZmFsY29uX3NjcmVlbl83XzE1MDY5MDk5NDlfMDE3/screen-7.jpg?fakeurl=1&type=.jpg'),
             filename: 'falcon.jpeg',
             content_type: 'image/jpeg')
-spaceship_tmf.save!
+falcon.save!
+
+majesty = Spaceship.new(
+  name: "Her Majesty's",
+  capacity: rand(10..50),
+  speciality: " Instead of interrupting, work on attracting: a spaceship trip which will leave an impression!"
+  )
+majesty.photo.attach(
+            io: URI.open('https://st2.depositphotos.com/4556043/7198/i/600/depositphotos_71983955-stock-photo-space-ship.jpg'),
+            filename: 'majesty.jpeg',
+            content_type: 'image/jpeg')
+majesty.save!
+
+light = Spaceship.new(
+  name: "Light Weight Spaceship",
+  capacity: rand(10..50),
+  speciality: " Master the topic, the message, and the delivery.
+Taking a trip of this kind makes you do a real statement in your life."
+  )
+light.photo.attach(
+            io: URI.open('https://robbreport.com/wp-content/uploads/2020/10/Virgin_Galactic_Unveils_Mach_3_Aircraft_Design_for_High_Speed_Travel_Image_2_cmyk-1.jpg'),
+            filename: 'light.jpeg',
+            content_type: 'image/jpeg')
+light.save!
+
 # Planets Seed!!
 
 
@@ -158,6 +269,36 @@ venus.photo.attach(
             filename: 'venus.jpg',
             content_type: 'image/jpg')
 venus.save!
+
+moon = Planet.new(
+              name:'Moon',
+              coordinates:"12,44.55",
+              description:'The Moon is Earth’s largest natural satellite. We usually see it in the night sky. Some other planets also have moons or natural satellites.')
+moon.photo.attach(
+            io: URI.open('https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg'),
+            filename: 'moon.jpg',
+            content_type: 'image/jpg')
+moon.save!
+
+pandora = Planet.new(
+              name:'Pandora',
+              coordinates:"99,33.55",
+              description:'Due to Pandora’s lower gravity, most creatures on Pandora are hexapods (six-legged), although the Na’vi resemble humans and have only two legs.')
+pandora.photo.attach(
+            io: URI.open('https://allears.net/wp-content/uploads/2020/01/ENp7lbGUYAEeIvv.jpg'),
+            filename: 'pandora.jpg',
+            content_type: 'image/jpg')
+pandora.save!
+
+sun = Planet.new(
+              name:'Sun',
+              coordinates:"44,55.11",
+              description:'The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, heated to incandescence by nuclear fusion reactions in its core, radiating the energy mainly as visible light and infrared radiation.')
+sun.photo.attach(
+            io: URI.open('https://www.deccanherald.com/sites/dh/files/articleimages/2020/07/13/sun%20istock-1594647126.jpg'),
+            filename: 'sun.jpg',
+            content_type: 'image/jpg')
+sun.save!
 
 mars = Planet.new(
              name:'Mars',
@@ -215,8 +356,8 @@ alderan.save!
 
 go_to_mars = Trip.new(
                   name: "Awesome Trip to Mars",
-                  spaceship: spaceship_us,
-                  captain: anakin,
+                  spaceship: discovery,
+                  captain: picard,
                   planet: mars,
                   price: 42000,
                   description: 'Come visit our beautiful red planet! You are going to be amazed! Also you can visit the landing spot of the Perseverance rover',
@@ -230,8 +371,8 @@ go_to_mars.save!
 
 go_to_venus = Trip.new(
                   name: "Superfast trip to Venus",
-                  spaceship: spaceship_tmf,
-                  captain: leila,
+                  spaceship: light,
+                  captain: spock,
                   planet: venus,
                   price: 42000,
                   description: 'Venus is waiting for you!! Our hot planet is going to keep you warm!',
@@ -247,8 +388,8 @@ go_to_venus.save!
 
 go_to_alderan = Trip.new(
                   name: "Visit Leila House",
-                  spaceship: spaceship_tmf,
-                  captain: anakin,
+                  spaceship: falcon,
+                  captain: leila,
                   planet: alderan,
                   price: 42000,
                   description: 'Come and visit the new Alderan, we build it againg from scratch just for you. We have also a DeathStar shield ... just for your safety!',
@@ -262,8 +403,8 @@ go_to_alderan.save!
 
 go_to_tatoonie= Trip.new(
                   name: "Visit Tatoonie!",
-                  spaceship: spaceship_tmf,
-                  captain: leila,
+                  spaceship: sulaco,
+                  captain: anakin,
                   planet: tatoonie,
                   price: 80000,
                   description: 'Come and visit the most dry planet in the universe, you will be able to visit the home planet of the Skywalkers',
@@ -279,8 +420,8 @@ go_to_tatoonie.save!
 
 go_to_exegol= Trip.new(
                   name: "Visit the planet of the Sith!",
-                  spaceship: spaceship_d,
-                  captain: anakin,
+                  spaceship: battlestar,
+                  captain: sidius,
                   planet: exegol,
                   price: 123000,
                   description: 'The Dark Lord of the Siths is waiting for you, here on Exegol. He will tich you how to use the dark side of the Force in this fantastic trip!',
@@ -294,8 +435,8 @@ go_to_exegol.save!
 
 go_to_mandalore= Trip.new(
                   name: "Visit Mandalore",
-                  spaceship: spaceship_et,
-                  captain: leila,
+                  spaceship: majesty,
+                  captain: jabba,
                   planet: mandalore,
                   price: 123000,
                   description: 'Visit the planet of Mando, you will be able to see Grogu going wild!!',
@@ -306,6 +447,22 @@ go_to_mandalore.photo.attach(
             filename: 'mandaloretrip.jpg',
             content_type: 'image/jpg')
 go_to_mandalore.save!
+
+go_to_pandora= Trip.new(
+                  name: "Visit Pandora",
+                  spaceship: discovery,
+                  captain: obiwan,
+                  planet: pandora,
+                  price: 123000,
+                  description: 'Come and visit our beautiful and peaceful planet, you will be able to float in a sea of milk.',
+                  departure_date: '2/7/2022',
+                  arrival_date: '12/03/280')
+go_to_pandora.photo.attach(
+            io: URI.open('https://images.pexels.com/photos/544268/pexels-photo-544268.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+            filename: 'pandoratrip.jpg',
+            content_type: 'image/jpg')
+go_to_pandora.save!
+
 
 puts 'Seed comlpeted! 🌱'
 
