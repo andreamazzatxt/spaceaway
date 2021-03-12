@@ -40,31 +40,40 @@ main {
 #home-trips{
   padding:2rem;
   .card{
-  text-decoration: none !important;
-  position: relative;
-  width:350px;
-  height:450px;
-  margin-bottom:3rem;
-  border-radius:8px;
-  background-color: $secondary-dark;
-  color:$text-color;
-  .image{
-    width:320px;
-    padding:.4rem;
+    text-decoration: none !important;
+    position: relative;
+    width:336px;
+    height:450px;
+    margin-bottom:3rem;
     border-radius:8px;
-  }
-  &-info{
-    padding:.8rem;
-    .trip-title{
-      font-size: .8rem;
-      text-align:left;
+    background-color: $secondary-dark;
+    color:$text-color;
+    .image{
+      width:100%;
+      height:55%;
+      padding:.4rem;
+      border-radius:8px;
     }
-    .trip-paragraph{
-      font-size: .6rem;
+    .image-100{
+      width:100%;
+      height:100%;
+      max-height:300px;
+      border-radius:8px;
+      object-fit: cover;
+      vertical-align: middle;
     }
+    &-info{
+      padding:.8rem;
+      .trip-title{
+        font-size: .8rem;
+        text-align:left;
+      }
+      .trip-paragraph{
+        font-size: .6rem;
+      }
 
+    }
   }
-}
 }
 
 .card:hover {
@@ -95,111 +104,124 @@ main {
 ///---------------------media queries
 
 
-// @media(max-width: 600px){
+@media(max-width: 560px){
 
-// #home-trips{
-//   padding:0;
-
-//   .col{
-//     height:100%;
-//     margin:0;
-//   }
-//   .card{
-//     width:370px;
-//     height:100%;
-//   text-decoration: none !important;
-//   position: relative;
-//   color:$text-color;
-//   margin:0;
-//   padding:0;
-//   .col{
-//     padding:0;
-//     margin:0 auto;
-//   }
-
-//   &-info{
-//     padding:.8rem;
-//     .trip-title{
-//       font-size: .8rem;
-//       text-align:left;
-//     }
-//     .trip-paragraph{
-//       font-size: .6rem;
-//     }
-
-//    }
-//    }
-//   }
-// }
-
-
-
-#home-trips{
-  padding:0;
-
-  .col{
-    height:100%;
+  #home-trips{
     margin:0;
-  }
-  .card{
-    width:370px;
-    height:100%;
-  text-decoration: none !important;
-  position: relative;
-  color:$text-color;
-  margin:0;
-  padding:0;
-  .col{
     padding:0;
+    .container{
+      margin:0;
+      padding:0;
+      width:100%;
+    }
+    .row{
+      display:flex;
+      flex-direction:column;
+      margin:0;
+      padding:0;
+      width:100%;
+    }
+    .col{
+      padding:0;
+    }
+    .card{
+      width:100%;
+      height:100%;
+      padding:1rem;
+      margin:0;
+      border-radius:0;
+      .image{
+        width:100%;
+        height:55%;
+      }
+      .avatar{
+        display:none;
+      }
+      .image-100{
+        width:100%;
+        height:100%;
+        vertical-align: middle;
+      }
+      &:last-child{
+        margin-bottom:2rem;
+      }
+    }
+
+  }
+}
+
+
+@media(max-width: 760px){
+  #home-trips{
+    padding:0;
+    .card{
+      width:600px;
+      grid-gap:.5rem;
+    }
+  }
+  .row{
+    flex-flow:column;
     margin:0 auto;
+    padding:0;
+  }
+  .col{
+    display:flex;
+    justify-content:center;
+  }
+}
+
+@media(max-width: 1200px){
+  #home-trips{
+    padding:0;
+    .card{
+      width:300px;
+      grid-gap:.5rem;
+    }
+    .col{
+      padding:0;
+    }
+  }
+  .avatar{
+    display:none;
   }
 
-  &-info{
-    padding:.8rem;
-    .trip-title{
-      font-size: .8rem;
-      text-align:left;
-    }
-    .trip-paragraph{
-      font-size: .6rem;
-    }
+}
 
-   }
-   }
-  }
+
+
 
 
 
 // --------------------------- trips captain / pirat overview section--------------------------------------
 
-//   .card-trips {
-//   text-decoration: none !important;
-//   position: relative;
-//   width:350px;
-//   height:auto;
-//   margin-bottom:3rem;
-//   border-radius:8px;
-//   background-color: $secondary-dark;
-//   color:$text-color;
+.card-trips {
+  text-decoration: none !important;
+  position: relative;
+  width:350px;
+  height:auto;
+  margin-bottom:3rem;
+  border-radius:8px;
+  background-color: $secondary-dark;
+  color:$text-color;
 
-// }
+}
 
-// .admission-process {
-//   display: inline-block;
-//   font-size: .6rem;
-//   padding-top: 10px;
-// }
+.admission-process {
+  display: inline-block;
+  font-size: .6rem;
+  padding-top: 10px;
+}
 
-// .card-info h5 {
-//   font-size: 12px;
-// }
+.card-info h5 {
+  font-size: 12px;
+}
 
-// .booked-pirate {
-//   float: left;
-// }
+.booked-pirate {
+  float: left;
+}
 
-// .booking-status {
-//   float: right;
-//   list-style: none;
+.booking-status {
+  float: right;
+  list-style: none;
 
-// }
+}

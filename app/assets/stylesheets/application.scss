@@ -18,12 +18,15 @@
 *::before,
 *::after {
   box-sizing: border-box;
+
 }
 
 body,html {
   background-color:$body-color;
   color: $text-color;
   scroll-behavior: smooth;
+    margin:0;
+    padding:0;
 }
 br{
   border-radius:2rem;
