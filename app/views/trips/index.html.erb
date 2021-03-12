@@ -10,11 +10,41 @@
       <div class="row">
         <% @trips.each do |trip| %>
           <div class="trip-resume">
-            <div class="trips-info">
+            <div class="container flex-trip">
               <%= cl_image_tag trip.photo.key, height: 200, width: 200, crop: :fill, class: 'image-resume'  %>
-
+              <div class="trips-info pl-3">
+                <h2><%= trip.name %></h2>
+                <p><i id="medal-icon" class="fas fa-globe"></i> <%= trip.planet.name %></p>
+                <p><i id="medal-icon" class="fas fa-space-shuttle"></i> <%= trip.spaceship.name %></p>
+                <p><i id="medal-icon" class="fab fa-bitcoin"></i> <%= trip.price %></p>
+                <% unless trip.bookings.size.positive? %>
+                  <%= link_to 'Cancel trip', trip_path(trip), method: :delete %>
+                <% else %>
+                  <p class="text-secondary">This trip is already booked you can't cancel</p>
+                <% end %>
+              </div>
             </div>
-            <h2><%= trip.name %></h2>
+              <div class="passengers-info">
+                <% if trip.bookings.size.zero? %>
+                  <h4>No bookings for this trip</h4>
+                <% else %>
+                  <h4>You have <%= pluralize trip.bookings.size, 'booking' %></h4>
+                <% end %>
+                <% trip.bookings.each do |booking| %>
+                  <p>
+                    <%= cl_image_tag booking.user.photo.key, height: 20, width: 20, crop: 'thumb', gravity: 'faces'  %>
+                    <%= booking.user.full_name %>
+                    <% unless booking.status %>
+                      <%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: 'text-success'%>
+                      <%= link_to 'Decline', booking_path(booking), method: :delete, class: 'text-danger'%>
+                    <% else %>
+                      <span class="text-success">Confirmed!</span>
+                    <% end %>
+
+
+                    </p>
+                <% end %>
+              </div>
           </div>
         <% end %>
     </div>
