@@ -94,73 +94,74 @@ main {
 
 ///---------------------media queries
 
-@media(max-width: 600px){
+// @media(max-width: 600px){
 
-#home-trips{
-  padding:0;
+// #home-trips{
+//   padding:0;
 
-  .col{
-    height:100%;
-    margin:0;
-  }
-  .card{
-    width:370px;
-    height:100%;
-  text-decoration: none !important;
-  position: relative;
-  color:$text-color;
-  margin:0;
-  padding:0;
-  .col{
-    padding:0;
-    margin:0 auto;
-  }
+//   .col{
+//     height:100%;
+//     margin:0;
+//   }
+//   .card{
+//     width:370px;
+//     height:100%;
+//   text-decoration: none !important;
+//   position: relative;
+//   color:$text-color;
+//   margin:0;
+//   padding:0;
+//   .col{
+//     padding:0;
+//     margin:0 auto;
+//   }
 
-  &-info{
-    padding:.8rem;
-    .trip-title{
-      font-size: .8rem;
-      text-align:left;
-    }
-    .trip-paragraph{
-      font-size: .6rem;
-    }
+//   &-info{
+//     padding:.8rem;
+//     .trip-title{
+//       font-size: .8rem;
+//       text-align:left;
+//     }
+//     .trip-paragraph{
+//       font-size: .6rem;
+//     }
 
-   }
-   }
-  }
+//    }
+//    }
+//   }
+// }
 
 
 // --------------------------- trips captain / pirat overview section--------------------------------------
 
-  .card-trips {
-  text-decoration: none !important;
-  position: relative;
-  width:350px;
-  height:auto;
-  margin-bottom:3rem;
-  border-radius:8px;
-  background-color: $secondary-dark;
-  color:$text-color;
+//   .card-trips {
+//   text-decoration: none !important;
+//   position: relative;
+//   width:350px;
+//   height:auto;
+//   margin-bottom:3rem;
+//   border-radius:8px;
+//   background-color: $secondary-dark;
+//   color:$text-color;
 
-}
+// }
 
-.admission-process {
-  display: inline-block;
-  font-size: .6rem;
-  padding-top: 10px;
-}
+// .admission-process {
+//   display: inline-block;
+//   font-size: .6rem;
+//   padding-top: 10px;
+// }
 
-.card-info h5 {
-  font-size: 12px;
-}
+// .card-info h5 {
+//   font-size: 12px;
+// }
 
-.booked-pirate {
-  float: left;
-}
+// .booked-pirate {
+//   float: left;
+// }
 
-.booking-status {
-  float: right;
-  list-style: none;
+// .booking-status {
+//   float: right;
+//   list-style: none;
 
-}
+// }
