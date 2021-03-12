@@ -25,11 +25,19 @@
 
 .review-card {
   margin-bottom: 30px;
-  background-color: #2C2C2C;
-  border-radius: 20px;
+  // background-color: #2C2C2C;
+  border-bottom: solid 5px #2C2C2C;
+  // border-radius: 20px;
   padding: 15px;
   text-align: center;
 }
+
+
+.reviews-container {
+  margin-bottom: 30px;
+}
+
+// CSS trips page
 
 .breadcrumb-container {
   padding-top: 100px;
@@ -37,8 +45,12 @@
 }
 
 
-.fa-star {
-  color: yellow;
+#active-star {
+  color: $primary;
+  margin: 5px;
+}
+#inactive-star{
+  color: $secondary;
   margin: 5px;
 }
 
