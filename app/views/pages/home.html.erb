@@ -22,8 +22,8 @@ commi
 <!-- grid trip section -->
 
 <section id="home-trips">
-  <div class="container pt-3">
 
+  <div class="container pt-3">
     <div class="row">
     <% @trips.each do |trip| %>
         <div class="col">
@@ -31,10 +31,11 @@ commi
           <div class="card">
             <%= cl_image_tag trip.captain.photo.key, class: 'avatar',id: 'absolute-avatar', height: 40, width: 40, crop: :fill %>
             <div class="image">
-              <%= cl_image_tag trip.photo.key, height: 350, width: 350, crop: :fill, class: 'image-100' %>
+              <%= cl_image_tag trip.photo.key, crop: :fill, class: 'image-100' %>
             </div>
             <div class="card-info">
               <h5 class="trip-title"><%= trip.name %></h5>
+              <p class="trip-paragraph"><span><i id="medal-icon" class="fas fa-space-shuttle"></i></i></span> <%= trip.planet.name %></p>
               <p class="trip-paragraph"> <%= trip.description %></p>
             </div>
           </div>
