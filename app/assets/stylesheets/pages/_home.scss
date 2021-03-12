@@ -83,8 +83,6 @@ main {
 }
 
 // search bar
-
-
 .search-bar{
   max-width: 600px;
   height:2rem;
@@ -93,6 +91,44 @@ main {
   margin-bottom:2rem;
 }
 
+///---------------------media queries
 
+@media(max-width: 600px){
+
+#home-trips{
+  padding:0;
+
+  .col{
+    height:100%;
+    margin:0;
+  }
+  .card{
+    width:370px;
+    height:100%;
+  text-decoration: none !important;
+  position: relative;
+  color:$text-color;
+  margin:0;
+  padding:0;
+  .col{
+    padding:0;
+    margin:0 auto;
+  }
+
+  &-info{
+    padding:.8rem;
+    .trip-title{
+      font-size: .8rem;
+      text-align:left;
+    }
+    .trip-paragraph{
+      font-size: .6rem;
+    }
+
+   }
+   }
+  }
+
+}
 
 
