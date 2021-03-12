@@ -8,17 +8,40 @@ class Trip < ApplicationRecord
   has_many :reviews, through: :bookings
   validates :name, :price, :departure_date, :arrival_date, :planet, presence: true
 
-
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [:name, :description],
-    associated_against: {
-      planet: [:name, :description],
-      spaceship: [:name]
-    },
-    using: {
-      tsearch: { prefix: true }
-    }
+                  against: [:name, :description],
+                  associated_against: {
+                    planet: [:name, :description],
+                    spaceship: [:name]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
+
+  def been_booked_by?(user)
+    condition = false
+    user.bookings.each do |booking|
+      condition = true if booking.user == user && booking.trip.id == id
+    end
+    condition
+  end
+
+  def space_left
+    spaceship.capacity - bookings.size
+  end
+
+  def avarege_rating
+    average = 0
+    reviews.each do |review|
+      average += review.rating
+    end
+    return average.zero? ? average : (average / reviews.size).round
+  end
+
+  def earnings
+    bookings.size * price
+  end
 
   def days_left
     (departure_date - Date.today).to_i

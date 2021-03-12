@@ -27,4 +27,8 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  alert = document.getElementById('alert-timer')
+  setTimeout(()=>{
+    alert.remove()
+  }, 3000)
 });

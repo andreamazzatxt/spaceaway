@@ -1,0 +1,38 @@
+<% if @trip.reviews.size.positive? %>
+  <h3 class="text-center py-3"> Trip <strong>Ratings</strong> </h3>
+  <% @trip.reviews.each do |review| %>
+    <div id="review-<%= review.id %>" class="review-card">
+      <h4><%= review.content %></h4>
+      <% if review.rating %>
+      <p>
+        <% review.rating.times do %>
+          <span><i id="active-star" class="fas fa-star"></i></span>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <span><i id="inactive-star" class="fas fa-star"></i></span>
+        <% end %>
+      </p>
+      <% end %>
+      <p>
+        <%= review.user.full_name %>
+        <%= cl_image_tag  review.user.photo.key, height: 20, width: 20, crop: 'thumb', gravity: 'faces' %>
+        <%= review.created_at.time.to_formatted_s(:long)   %>
+      </p>
+      <% if review.user == current_user %>
+        <%= link_to 'Delete', review_path(review), method: :delete %>
+      <% end %>
+    </div>
+  <% end %>
+  <% end %>
+
+<div class="container">
+ <% if @booking && @booking.status == true%>
+ <h3 class="text-center py-3"> Rate this trip to <%= @trip.planet.name %></h3>
+  <%= simple_form_for([@booking, @review], remote: true) do |f|%>
+    <%= f.input :rating, placeholder: 'Rating', input_html: { min: '0', max:'5', step: '1' } %>
+    <%= f.input :content %>
+    <%= f.submit "Rate!", class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+</div>
+

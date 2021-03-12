@@ -5,6 +5,10 @@ class ReviewPolicy < ApplicationPolicy
     end
   end
 
+  def destroy?
+    user == record.user
+  end
+
   def show?
     true
   end
