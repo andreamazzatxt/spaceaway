@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       patch :accept
       patch :decline
     end
-    resources :reviews, only: [:create, :edit]
+    resources :reviews, only: [:create, :edit, :destroy]
   end
   resources :reviews, only: :destroy
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

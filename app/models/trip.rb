@@ -27,6 +27,22 @@ class Trip < ApplicationRecord
     condition
   end
 
+  def space_left
+    spaceship.capacity - bookings.size
+  end
+
+  def avarege_rating
+    average = 0
+    reviews.each do |review|
+      average += review.rating
+    end
+    return average.zero? ? average : (average / reviews.size).round
+  end
+
+  def earnings
+    bookings.size * price
+  end
+
   def days_left
     (departure_date - Date.today).to_i
   end

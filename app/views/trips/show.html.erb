@@ -6,7 +6,7 @@
      <h1 class="trip-title"><%= @trip.name %></h1>
     <%= cl_image_tag @trip.photo.key, height: 600, width: 400, crop: :fill, class: 'image-show' %>
      <div class="trip-info narrow">
-       <h2>Trip description</h2>
+
        <p><%= @trip.description %></p>
      </div>
      <div class="trip-info narrow">
@@ -40,8 +40,8 @@
     <div class="trip-info">
       <h3>About <%= @trip.spaceship.name %> </h3>
       <%= cl_image_tag @trip.spaceship.photo.key, height: 200, width: 200, crop: :fill  %>
-      <p>Info: <%= @trip.spaceship.speciality %></p>
-      <p>Capacity: <%= @trip.spaceship.capacity %> pirates</p>
+      <p><%= @trip.spaceship.speciality %></p>
+      <p><i id="medal-icon" class="fas fa-users"></i> <%= @trip.space_left %> seats left</p>
     </div>
   </div>
 </div>
