@@ -34,8 +34,8 @@ commi
               <%= cl_image_tag trip.photo.key, crop: :fill, class: 'image-100' %>
             </div>
             <div class="card-info">
-              <h5 class="trip-title"><%= trip.name %></h5>
-              <p class="trip-paragraph"><span><i id="medal-icon" class="fas fa-space-shuttle"></i></i></span> <%= trip.planet.name %></p>
+              <h3 class="trip-title"><%= trip.name %></h5>
+              <p class="trip-paragraph"><i id="medal-icon" class="fas fa-globe"></i> <%= trip.planet.name %> <span> <i id="medal-icon" class="fas fa-space-shuttle"></i></i></span> <%= trip.spaceship.name %></p>
               <p class="trip-paragraph"> <%= trip.description %></p>
             </div>
           </div>

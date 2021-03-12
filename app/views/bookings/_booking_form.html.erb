@@ -3,6 +3,8 @@
     <p><span class="text-primary"><%= trip.days_left %></span>  days left! </p>
     <p><span class="text-primary"><%= trip.users.count %> </span>  pirates has booked this trip!</p>
     <p>Total earnings: <i id="medal-icon" class="fab fa-bitcoin"></i> <%= number_with_delimiter(trip.earnings, delimiter: '.') %></p>
+    <p><i  id="medal-icon" class="fas fa-plane-departure"></i> <%= trip.departure_date.to_formatted_s(:long) %></p>
+    <p><i id="medal-icon" class="fas fa-plane-arrival"></i> <%= trip.departure_date.to_formatted_s(:long) %></p>
     <% if trip.need_approval %>
        <%= link_to "#{trip.need_approval} requets to approve", trips_path%>
     <% else %>
