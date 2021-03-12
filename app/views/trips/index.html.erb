@@ -28,7 +28,7 @@
                    <li> <%= booking.user.first_name %> </li>
                     <p> - Status: <%= booking.booking_status %> </p>
                 <!-- Trip Card : Booking Status ? -->
-                  <div lass="admission-process">
+                  <div class="admission-process">
                     <% if booking.booking_status == "pending" %>
                       <%= link_to "accept", accept_booking_path(booking), class: 'btn btn-success rounded', method: :patch  %>
                       <%= link_to "decline", decline_booking_path(booking), class: 'btn btn-warning rounded', method: :patch  %>
