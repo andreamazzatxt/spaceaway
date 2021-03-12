@@ -8,15 +8,17 @@ class TripsController < ApplicationController
     add_breadcrumb "#{current_user.first_name} Trips", trips_path
     # current_user = user who is logged in
     if current_user && current_user.is_captain
-      @trips = Trip.where(captain_id: current_user.id).select do |t|
-        t.bookings.count.positive?
-      end
-    elsif current_user && !current_user.is_captain
-      @bookings = Booking.where(user: current_user)
-      @trips = @bookings.map do |booking|
-        booking.trip
-      end
-    else @trips = Trip.all
+      @trips = Trip.where(captain: current_user)
+    #   # @trips = Trip.where(captain_id: current_user.id).select do |t|
+    #   #   t.bookings.count.positive?
+    #   # end
+    # elsif current_user && !current_user.is_captain
+    #   @bookings = Booking.where(user: current_user)
+    #   @trips = @bookings.map do |booking|
+    #     booking.trip
+    #   end
+    else
+      @trips = Trip.all
     end
   end
 
