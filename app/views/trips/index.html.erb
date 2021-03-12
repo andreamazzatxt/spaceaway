@@ -9,47 +9,12 @@
     <h1>My Trips</h1>
       <div class="row">
         <% @trips.each do |trip| %>
-<<<<<<< HEAD
           <div class="trip-resume">
             <div class="trips-info">
               <%= cl_image_tag trip.photo.key, height: 200, width: 200, crop: :fill, class: 'image-resume'  %>
-=======
-          <div class="col">
-            <div class="card-trips">
-              <%= cl_image_tag trip.captain.photo.key, class: 'avatar',id: 'absolute-avatar', height: 40, width: 40, crop: :fill %>
-              <div class="image">
-                <%= cl_image_tag trip.photo.key, height: 300, width: 335, crop: :fill %>
-              </div>
-              <div class="card-info">
-                <h5 class="trip-title"><%= trip.name %></h5>
-                <p class="trip-paragraph"> <%= trip.description %></p>
 
-              <!-- Trip Card : Booking Info-->
-              <h5>See Pirates on your trip</h5>
-              <div class="card-info trip-paragraph">
-                <!-- Trip Card : Which Pirates? -->
-                <% if current_user.is_captain %>
-                  <% trip.bookings.each do |booking| %>
-                   <li> <%= booking.user.first_name %> </li>
-                    <p> - Status: <%= booking.booking_status %> </p>
-                <!-- Trip Card : Booking Status ? -->
-                  <div class="admission-process">
-                    <% if booking.booking_status == "pending" %>
-                      <%= link_to "accept", accept_booking_path(booking), class: 'btn btn-success rounded', method: :patch  %>
-                      <%= link_to "decline", decline_booking_path(booking), class: 'btn btn-warning rounded', method: :patch  %>
-                    <% elsif booking.booking_status == "accepted"  %>
-                      <%= link_to "decline", decline_booking_path(booking), class: 'btn btn-warning rounded', method: :patch  %>
-                    <% else %>
-                      <%= link_to "accept", accept_booking_path(booking), class: 'btn btn-success rounded', method: :patch  %>
-                    <% end %>
-                  </div>
-                  <% end %>
-                <% end %>
-              </div>
->>>>>>> master
             </div>
             <h2><%= trip.name %></h2>
-
           </div>
         <% end %>
     </div>
