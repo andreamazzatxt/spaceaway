@@ -34,9 +34,10 @@
 
       <% else %>
 
-      <h2 class="text-warning">Pending <%= link_to trip_path(trip) do %>
-         <i class="fas fa-retweet"></i>
+      <h2 class="text-warning"> <%= link_to trip_path(trip) do %>
+         <i class="fas fa-retweet fa-sm"></i>
          <% end %>
+         Pending...
       </h2>
         <p>Captain <%= trip.captain.first_name %> <%= trip.captain.last_name %> needs to confirm your booking! </p>
         <p><%= trip.days_left %> days left! </p>
