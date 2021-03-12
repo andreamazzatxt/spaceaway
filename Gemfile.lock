@@ -69,8 +69,6 @@ GEM
     bindex (0.8.1)
     bootsnap (1.7.2)
       msgpack (~> 1.0)
-    bootstrap-datepicker-rails (1.9.0.1)
-      railties (>= 3.0)
     breadcrumbs_on_rails (4.0.0)
       rails (>= 5.0)
     builder (3.2.4)
@@ -274,7 +272,6 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootsnap (>= 1.4.4)
-  bootstrap-datepicker-rails
   breadcrumbs_on_rails
   byebug
   capybara (>= 3.26)

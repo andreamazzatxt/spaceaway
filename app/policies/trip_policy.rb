@@ -11,7 +11,7 @@ class TripPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.pirats.positive? ? false : true
+    record.bookings.count.positive? ? false : true
   end
 
   def create?

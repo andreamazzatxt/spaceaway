@@ -13,6 +13,7 @@
 @import "components/index";
 @import "pages/home";
 @import "pages/show";
+@import "pages/index";
 
 *,
 *::before,
@@ -54,6 +55,10 @@ img {
 }
 ul{
   list-style-type:none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 // a:hover{

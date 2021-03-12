@@ -1,0 +1,33 @@
+.trip-resume {
+  padding: 30px;
+  border-bottom: solid 3px $secondary;
+  width: 100%;
+  }
+
+
+.passengers-info {
+  padding: 30px;
+  width: 100%;
+
+}
+
+.flex-trip {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: fex-start;
+}
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+  .trip-resume {
+       img {
+      display: none
+  }
+}
+}

@@ -1,50 +1,51 @@
 <section id="home-trips">
 
   <!-- Breadcrumb -->
-  <p class="breadcrumb-container">
+<p class="breadcrumb-container">
   <%= render_breadcrumbs :separator => ' / ' %>
-  </p>
+</p>
 
   <div class="container pt-3">
     <h1>My Trips</h1>
       <div class="row">
         <% @trips.each do |trip| %>
-          <div class="col">
-            <div class="card-trips">
-              <%= cl_image_tag trip.captain.photo.key, class: 'avatar',id: 'absolute-avatar', height: 40, width: 40, crop: :fill %>
-              <div class="image">
-                <%= cl_image_tag trip.photo.key, height: 300, width: 335, crop: :fill %>
-              </div>
-              <div class="card-info">
-                <h5 class="trip-title"><%= trip.name %></h5>
-                <p class="trip-paragraph"> <%= trip.description %></p>
-
-              <!-- Trip Card : Booking Info-->
-              <h5>See Pirates on your trip</h5>
-              <div class="card-info trip-paragraph">
-                <!-- Trip Card : Which Pirates? -->
-                <% if current_user.is_captain %>
-                  <% trip.bookings.each do |booking| %>
-                   <li> <%= booking.user.first_name %> </li>
-                    <p> - Status: <%= booking.booking_status %> </p>
-                <!-- Trip Card : Booking Status ? -->
-                  <div class="admission-process">
-                    <% if booking.booking_status == "pending" %>
-                      <%= link_to "accept", accept_booking_path(booking), class: 'btn btn-success rounded', method: :patch  %>
-                      <%= link_to "decline", decline_booking_path(booking), class: 'btn btn-warning rounded', method: :patch  %>
-                    <% elsif booking.booking_status == "accepted"  %>
-                      <%= link_to "decline", decline_booking_path(booking), class: 'btn btn-warning rounded', method: :patch  %>
-                    <% else %>
-                      <%= link_to "accept", accept_booking_path(booking), class: 'btn btn-success rounded', method: :patch  %>
-                    <% end %>
-                  </div>
-                  <% end %>
+          <div class="trip-resume">
+            <div class="container flex-trip">
+              <%= cl_image_tag trip.photo.key, height: 200, width: 200, crop: :fill, class: 'image-resume'  %>
+              <div class="trips-info pl-3">
+                <h2><%= trip.name %></h2>
+                <p><i id="medal-icon" class="fas fa-globe"></i> <%= trip.planet.name %></p>
+                <p><i id="medal-icon" class="fas fa-space-shuttle"></i> <%= trip.spaceship.name %></p>
+                <p><i id="medal-icon" class="fab fa-bitcoin"></i> <%= trip.price %></p>
+                <% unless trip.bookings.size.positive? %>
+                  <%= link_to 'Cancel trip', trip_path(trip), method: :delete %>
+                <% else %>
+                  <p class="text-secondary">This trip is already booked you can't cancel</p>
                 <% end %>
               </div>
             </div>
-          </div>
+              <div class="passengers-info">
+                <% if trip.bookings.size.zero? %>
+                  <h4>No bookings for this trip</h4>
+                <% else %>
+                  <h4>You have <%= pluralize trip.bookings.size, 'booking' %></h4>
+                <% end %>
+                <% trip.bookings.each do |booking| %>
+                  <p>
+                    <%= cl_image_tag booking.user.photo.key, height: 20, width: 20, crop: 'thumb', gravity: 'faces'  %>
+                    <%= booking.user.full_name %>
+                    <% unless booking.status %>
+                      <%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: 'text-success'%>
+                      <%= link_to 'Decline', booking_path(booking), method: :delete, class: 'text-danger'%>
+                    <% else %>
+                      <span class="text-success">Confirmed!</span>
+                    <% end %>
 
-        </div>
+
+                    </p>
+                <% end %>
+              </div>
+          </div>
         <% end %>
     </div>
   </div>
